@@ -30,8 +30,8 @@ public class MainAtm {
             System.out.println("Masukkan Pilihan Anda = ");
             pilih = in.nextInt();
             switch(pilih){
-                case 1 :
-                case 2 :
+                case 1 :ini.ambilUang();
+                case 2 :ini.akSaldo();
                 case 3 :
             }
             }while(pilih   !=4);
