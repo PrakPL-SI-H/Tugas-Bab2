@@ -50,8 +50,10 @@ class ATM{
 public class LatihanBab2 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
+        String answer;
         ATM atm = new ATM("Nofry Arman","1234",5000000,"098765");
         ATM atm2 = new ATM("Rakha","2343",4500000,"123456");
+        do{
         System.out.print("Masukan PIN anda: "); 
         String pin = in.next();
         if(pin.equals(atm.pin) || pin.equals(atm2.pin)){
@@ -119,7 +121,9 @@ public class LatihanBab2 {
         }
         else{
             System.out.println("Pin Tidak Valid");
-        }    
-    }
-    
+        }
+        System.out.print("Melanjutkan Transaksi? (Y/N) ");
+        answer = in.next();
+    }while(answer.equalsIgnoreCase("Y"));
+    }   
 }
