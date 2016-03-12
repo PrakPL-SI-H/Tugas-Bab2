@@ -9,6 +9,11 @@ class ATM{
        this.saldo = saldo ;
        uang = 0;
    }
+  public void getSaldo(){
+       System.out.println("=====SALDO=====");
+       System.out.println("Saldo di Rekening anda : Rp."+saldo+";");
+       System.out.println("Transaksi Berhasil");
+   }
 }
 public class LatihanBab2 {
     public static void main(String[] args) {
