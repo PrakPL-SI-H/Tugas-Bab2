@@ -14,6 +14,18 @@ class ATM{
        System.out.println("Saldo di Rekening anda : Rp."+saldo+";");
        System.out.println("Transaksi Berhasil");
    }
+  public void getUang(int uang){
+       this.uang = uang;
+       if (saldo > uang){
+         saldo = saldo - uang;
+         System.out.println("--------------------------------");
+         System.out.println("Penarikan Sebesar: Rp."+uang);
+         System.out.println("Sisa Saldo anda saat ini : Rp."+saldo);
+       }
+       else{
+         System.out.println("Transaksi Di Batalkan, Saldo anda Tidak Cukup");
+       }
+   }
 }
 public class LatihanBab2 {
     public static void main(String[] args) {
