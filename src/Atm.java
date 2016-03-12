@@ -1,16 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package prakpl;
-
 import java.util.Scanner;
-
-/**
- *
- * @author Prasetyo
- */
 public class Atm {
     int noReg;
     int Saldo = 100000000;
@@ -19,6 +8,8 @@ public class Atm {
     int ambilUang;
     int cekSaldo;
     int Transfer;
+    int pin;
+    int pin2;
     Scanner ni = new Scanner(System.in);
 
     public void ambilUang(){
@@ -57,5 +48,54 @@ public class Atm {
             System.out.println("Saldo Awal anda tinggal = "+ Saldo);
             System.out.println("Saldo Akhir anda tinggal = "+ Jumlah);
         }
-     
+        public void Transfer(){
+            System.out.println("Transfer");
+            System.out.println("1.Bank Yang Sama");
+            System.out.println("2.Bank Lainnya");
+            System.out.println("Masukkan Pilihan Anda = ");
+            int pilih =ni.nextInt();
+            if (pilih==1){
+                System.out.println("Masukkan Pin = ");
+                pin = ni.nextInt();
+                System.out.println("Masukkan uang = ");
+                int no =ni.nextInt();
+                if (pin==1234){
+                    System.out.println("No Rekening : "+pin);
+                    System.out.println("An Nama     : Pak dhe Qu");
+                    System.out.println("Nominal     : "+no);
+                    System.out.println("Transfer Sukses !!!");
+                }else 
+                    System.out.println("Pin Tidak tersedia ");      
+                    System.out.println("Transfer Gagal !!!");
+            }else if(pilih==2){
+                System.out.println("Masukkan Nominalnya = ");
+                int nom = ni.nextInt();
+                Jumlah=Saldo - nom;
+                System.out.println("Kode Bank");
+                System.out.println("01 Bank ini");
+                System.out.println("02 Bank mu");
+                System.out.println("03 Bank Negara");
+                System.out.println("Masukkan kode bank diikuti nomer rekening = ");
+                pin2 = ni.nextInt();
+                if (pin2 == 01222){
+                    System.out.println("No Rekening : "+pin2);
+                    System.out.println("An Nama     : Bpk Qu");
+                    System.out.println("Nominal     : "+nom);
+                    System.out.println("Transfer Sukses !!!");
+                }else if(pin2 == 02333){
+                    System.out.println("No Rekening : "+pin2);
+                    System.out.println("An Nama     : Ibu Qu");
+                    System.out.println("Nominal     : "+nom);
+                    System.out.println("Transfer Sukses !!!");
+                }else if(pin2 == 03444){
+                    System.out.println("No Rekening : "+pin2);
+                    System.out.println("An Nama     : Adik Qu");
+                    System.out.println("Nominal     : "+nom);
+                    System.out.println("Transfer Sukses !!!");
+                }else{
+                    System.out.println("Pilihan Anda Tidak Tersedia !!!");
+                    System.out.println("Transfer Gagal !!!");
             }
+        }
+    }
+}           
