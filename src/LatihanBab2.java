@@ -26,6 +26,26 @@ class ATM{
          System.out.println("Transaksi Di Batalkan, Saldo anda Tidak Cukup");
        }
    }
+  public void dataTransfer(){
+     System.out.println("Nomer Rekening Atas nama "+nama);
+   }
+   public void setTransfer(int uang){
+       this.uang = uang;
+       if (saldo > uang){
+        saldo = saldo-uang;
+         System.out.println("============TRANSFER============");
+         System.out.println("Dengan Nomer Rekening: "+noRek);
+         System.out.println("Transfer Sebesar : "+uang);
+         System.out.println("Informasi Saldo Anda : Rp."+saldo);
+         System.out.println("=======Transaksi Berhasil=======");
+       }
+       else{
+         System.out.println("Transaksi Di Batalkan Saldo anda Tidak Cukup");
+       }      
+   }
+    public void Transfer(ATM B){
+       B.saldo = B.saldo + uang;
+   }
 }
 public class LatihanBab2 {
     public static void main(String[] args) {
