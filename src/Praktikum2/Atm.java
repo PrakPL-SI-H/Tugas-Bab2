@@ -8,10 +8,6 @@ public class Atm {
     private int transfer;
     private String rek;
 
-    public Atm() {
-
-    }
-
     public int password() {
         return password = 123456;
     }
