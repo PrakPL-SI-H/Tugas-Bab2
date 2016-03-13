@@ -32,11 +32,10 @@ public class AtmPanggil {
                     System.out.println("==Tarik Tunai==");
                     System.out.print("Masukkan jumlah uang : ");
                     bos.tarik = in.nextInt();
-                    if (bos.tarik <= bos.saldo) {
+                    if (bos.tarik < bos.saldo) {
                         bos.setTarik();
                         System.out.println("Sisa saldo anda Rp." + bos.saldo);
                     } else {
-                        bos.setTarik();
                         System.out.println("Maaf");
                         System.out.println("Sisa Saldo anda kurang dari Rp." + bos.tarik);
                     }
@@ -49,11 +48,10 @@ public class AtmPanggil {
                     bos.rekening = in.nextInt();
                     System.out.print("Jumlah yang di Transfer   : ");
                     bos.transfer = in.nextInt();
-                    if (bos.transfer <= bos.saldo) {
+                    if (bos.transfer < bos.saldo) {
                         bos.setTransfer();
                         System.out.println("Sisa saldo anda Rp." + bos.saldo);
                     } else {
-                        bos.setTransfer();
                         System.out.println("Maaf");
                         System.out.println("Sisa Saldo anda kurang dari Rp." + bos.transfer);
                     }
