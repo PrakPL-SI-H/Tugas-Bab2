@@ -20,7 +20,9 @@ public class AtmPanggil {
             System.out.println("");
             System.out.print("Pilih Menu    : ");
             pilih = in.nextInt();
-            
+            switch (pilih) {
+                case 1 :
+            }
         }
     }
 }
