@@ -1,5 +1,9 @@
 package Praktikum2;
 
+//NAMA  : Arif Ramadhan
+//NIM   : 155150401111139
+//Kelas : SI-H
+
 import java.util.Scanner;
 
 public class AtmPanggil {
