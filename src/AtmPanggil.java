@@ -22,6 +22,17 @@ public class AtmPanggil {
             pilih = in.nextInt();
             switch (pilih) {
                 case 1 :
+                    System.out.println("Saldo anda saat ini Rp."+bos.saldo);
+                    System.out.println("");
+                    break;
+                case 2 :
+                    System.out.println("Tarik Tunai");
+                    System.out.print("Masukkan jumlah uang : ");
+                    bos.tarik=in.nextInt();
+                    if (bos.tarik<=bos.saldo){
+                        bos.tarik();
+                        System.out.println("Sisa saldo anda Rp."+bos.saldo);
+                    }
             }
         }
     }
