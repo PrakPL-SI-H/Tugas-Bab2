@@ -7,7 +7,9 @@ public class AtmPanggil {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int pilih = 0;
+        //membuat saldo default nya Rp.10.000.000,-
         Atm bos = new Atm(10000000);
+        //tidak ada seleksi kondisi dalam memasukkan pin
         System.out.println("======BANK MAHASISWA BRAWIJAYA======");
         System.out.print("Masukkan Pin    : ");
         bos.pin = in.nextInt();
@@ -42,6 +44,7 @@ public class AtmPanggil {
                 case 3:
                     System.out.println();
                     System.out.println("==Transfer==");
+                    //tidak ada ketentuan nomer rekening
                     System.out.print("Transfer ke Rekening      : ");
                     bos.rekening = in.nextInt();
                     System.out.print("Jumlah yang di Transfer   : ");
