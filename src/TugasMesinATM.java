@@ -84,6 +84,9 @@ public class TugasMesinATM {
                         System.out.print("Masukkan Nomer Rekening Tujuan Anda   : ");
                         int norek=in.nextInt();
                         masuk.norek(norek);
+                        System.out.print("Masukkan Jumlah Nominal Transfer Anda : ");
+                        double transfer=in.nextInt();
+                        masuk.transfer(transfer);
                         
                         
                     case 3:
