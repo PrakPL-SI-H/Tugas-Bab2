@@ -4,8 +4,10 @@ package tugas1.pkg2;
 
 public class Atm {
     int saldo;
+    int rek;
+    int kirim;
     
-    void Atm(){
+    public Atm(){
         saldo = 500000;
     }
     
@@ -23,7 +25,9 @@ public class Atm {
         }
     }
     
-    void transferUang(){
-        
+    void transferUang(Atm a){
+        saldo = saldo - kirim;
+        a.saldo = a.saldo + kirim;
+        System.out.println("Uang sudah terkirim");
     }
 }

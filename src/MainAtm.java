@@ -6,7 +6,10 @@ public class MainAtm{
 
     public static void main(String[] args) {
         int password, pilih;
+        
         Atm atm = new Atm();
+        Atm atm2 = new Atm();
+        
         Scanner in = new Scanner(System.in);
 
         System.out.print("Masukkan password : ");
@@ -26,10 +29,15 @@ public class MainAtm{
                         atm.lihatSaldo();
                         break;
                     case 2:
-                        atm.tarikUang();
+                        System.out.print("Masukkan uang : ");
+                        atm.tarikUang(in.nextInt());
                         break;
                     case 3:
-                        atm.transferUang();
+                        System.out.print("Masukkan no rek tujuan : ");
+                        atm2.rek = in.nextInt();
+                        System.out.print("Masukkan jumlah uang : ");
+                        atm.kirim = in.nextInt();
+                        atm.transferUang(atm2);
                         break;
                 }
             } while (pilih != 0);
