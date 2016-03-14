@@ -38,13 +38,15 @@ class Data {
     public int norek(int x) {
         return norek = x;
     }
-    public String agendaTransfer(String x){
-        return agenda=x;
+
+    public String agendaTransfer(String x) {
+        return agenda = x;
     }
-    public void tampilanTransfer(){
-        System.out.println("Nomer Rekening tujuan : "+norek);
-        System.out.println("Nominal Transfer      : Rp."+transfer+"0");
-        System.out.println("Agenda Transfer       : "+agenda);
+
+    public void tampilanTransfer() {
+        System.out.println("Nomer Rekening tujuan : " + norek);
+        System.out.println("Nominal Transfer      : Rp." + transfer + "0");
+        System.out.println("Agenda Transfer       : " + agenda);
     }
 }
 
@@ -76,27 +78,31 @@ public class TugasMesinATM {
                         System.out.println("        ====================================");
                         System.out.println("        =============LIHAT SALDO============");
                         System.out.println("        ====================================");
-                        System.out.println("Sisa Saldo Yang Anda Miliki Adalah Sebesar : Rp." + masuk.getSaldo() + "0");break;
+                        System.out.println("Sisa Saldo Yang Anda Miliki Adalah Sebesar : Rp." + masuk.getSaldo() + "0");
+                        break;
                     case 2:
                         System.out.println("        ====================================");
                         System.out.println("        =============TRANSFER UANG==========");
                         System.out.println("        ====================================");
                         System.out.print("Masukkan Nomer Rekening Tujuan Anda   : ");
-                        int norek=in.nextInt();
+                        int norek = in.nextInt();
                         masuk.norek(norek);
                         System.out.print("Masukkan Jumlah Nominal Transfer Anda : ");
-                        double transfer=in.nextInt();
+                        double transfer = in.nextInt();
                         masuk.transfer(transfer);
                         System.out.print("Masukkan Agenda Transfer Anda         : ");
-                        String agenda=in.next();
+                        String agenda = in.next();
                         masuk.agendaTransfer(agenda);
-                        
-                        
+                        System.out.println("=============================================");
+                        System.out.println("Proses sedang berlangsung Silahkan tunggu....");
+                        masuk.tampilanTransfer();
+                        System.out.println("TRANSAKSI TELAH BERHASIL.");
+                        break;
+
                     case 3:
                     case 4:
                     case 5:
-                        
-                        
+
                 }
             } while (pil != 5);
         } else {
