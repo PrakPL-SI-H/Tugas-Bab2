@@ -138,19 +138,20 @@ public class TugasMesinATM {
                         System.out.println("        ====================================");
                         System.out.println("        ==========TRANSFER LAIN LAIN========");
                         System.out.println("        ====================================");
-                        System.out.print("Masukkan Nomer Rekening Tujuan Anda   : ");
+                        System.out.print("Masukkan Nomer Rekening INSTANSI              : ");
                         norek = in.nextInt();
                         masuk.norek(norek);
-                        System.out.print("Masukkan Jumlah Nominal Transfer Anda : ");
+                        System.out.print("Masukkan Jumlah Nominal Transfer Anda         : ");
                         transfer = in.nextInt();
                         masuk.transfer(transfer);
-                        System.out.print("Masukkan Agenda Transfer Anda         : ");
+                        System.out.print("Masukkan Agenda Transfer Anda Kepada INSTANSI : ");
                         agenda = in.next();
                         masuk.agendaTransfer(agenda);
                         System.out.println("=============================================");
                         System.out.println("Proses sedang berlangsung Silahkan tunggu....");
                         masuk.tampilanTransfer();
                         System.out.println("TRANSAKSI TELAH BERHASIL.");
+                        System.out.println("SEGERA HUBUNGI INSTANSI YANG TERKAIT UNTUK KONFIRMASI");
                         break;
 
                     case 5:
