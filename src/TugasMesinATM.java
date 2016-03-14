@@ -48,6 +48,13 @@ class Data {
         System.out.println("Nominal Transfer      : Rp." + transfer + "0");
         System.out.println("Agenda Transfer       : " + agenda);
     }
+
+    public void tampilansaldo() {
+        System.out.println("        ====================================");
+        System.out.println("        =============LIHAT SALDO============");
+        System.out.println("        ====================================");
+        System.out.println("Sisa Saldo Yang Anda Miliki Adalah Sebesar : Rp." +getSaldo() + "0");
+    }
 }
 
 public class TugasMesinATM {
@@ -75,10 +82,7 @@ public class TugasMesinATM {
                 pil = in.nextInt();
                 switch (pil) {
                     case 1:
-                        System.out.println("        ====================================");
-                        System.out.println("        =============LIHAT SALDO============");
-                        System.out.println("        ====================================");
-                        System.out.println("Sisa Saldo Yang Anda Miliki Adalah Sebesar : Rp." + masuk.getSaldo() + "0");
+                        masuk.tampilansaldo();
                         break;
                     case 2:
                         System.out.println("        ====================================");
