@@ -23,8 +23,8 @@ class Data {
     }
 
 // untuk memunculkan nilai pin dan Saldo
-    public int getPin() {
-        return pin;
+    public int getPin(Data A) { //meng instance method ke variabel A
+        return A.pin;
     }
 
     public double getSaldo() {
@@ -86,7 +86,7 @@ public class TugasMesinATM {
 
         System.out.print("Masukkan PIN Anda  :");
         int pin = in.nextInt();
-        if (masuk.getPin() == pin) {
+        if (masuk.getPin(masuk) == pin) { //memanggil instance method pada class Data dipanggil oleh objek masuk
             tampilanMenu();
             int pil;
             do {
