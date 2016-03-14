@@ -42,7 +42,8 @@ class Data {
     public String agendaTransfer(String x) {
         return agenda = x;
     }
-    public void penarikan(){
+
+    public void penarikan() {
         System.out.println("|=======================================================|");
         System.out.print("|               > PILIH NOMINAL PENARIKAN <             |");
         System.out.println();
@@ -52,7 +53,7 @@ class Data {
         System.out.println();
         System.out.println("|                     [5] Keluar                        |");
         System.out.println("|=======================================================|");
-        
+
     }
 
     public void tampilanTransfer() {
@@ -65,7 +66,7 @@ class Data {
         System.out.println("        ====================================");
         System.out.println("        =============LIHAT SALDO============");
         System.out.println("        ====================================");
-        System.out.println("Sisa Saldo Yang Anda Miliki Adalah Sebesar : Rp." +getSaldo() + "0");
+        System.out.println("Sisa Saldo Yang Anda Miliki Adalah Sebesar : Rp." + getSaldo() + "0");
     }
 }
 
@@ -82,7 +83,6 @@ public class TugasMesinATM {
         masuk.setSaldo(7000000);
         System.out.println("    =====ATM BAHTIAR JAYA ABADI=====");
         System.out.println();
-        
 
         System.out.print("Masukkan PIN Anda  :");
         int pin = in.nextInt();
@@ -119,27 +119,40 @@ public class TugasMesinATM {
                     case 3:
                         masuk.penarikan();
                         System.out.println("Masukkan Pilihan Anda : ");
-                        int uang=in.nextInt();
-                        if(uang==1){
+                        int uang = in.nextInt();
+                        if (uang == 1) {
                             System.out.println("Uang Yang Anda Ambil Sebesar Rp.50.000");
-                            System.out.println("Dengan Sisa Saldo           :Rp."+(masuk.getSaldo()-50000));
-                        }
-                        else if(uang==2){
+                            System.out.println("Dengan Sisa Saldo           :Rp." + (masuk.getSaldo() - 50000));
+                        } else if (uang == 2) {
                             System.out.println("Uang Yang Anda Ambil Sebesar Rp.1000.000");
-                            System.out.println("Dengan Sisa Saldo           :Rp."+(masuk.getSaldo()-1000000));
-                        }
-                        else if(uang==3){
+                            System.out.println("Dengan Sisa Saldo           :Rp." + (masuk.getSaldo() - 1000000));
+                        } else if (uang == 3) {
                             System.out.println("Uang Yang Anda Ambil Sebesar Rp.1500.000");
-                            System.out.println("Dengan Sisa Saldo           :Rp."+(masuk.getSaldo()-1500000));
-                        }
-                        else if(uang==4){
+                            System.out.println("Dengan Sisa Saldo           :Rp." + (masuk.getSaldo() - 1500000));
+                        } else if (uang == 4) {
                             System.out.println("Uang Yang Anda Ambil Sebesar Rp.5000.000");
-                            System.out.println("Dengan Sisa Saldo           :Rp."+(masuk.getSaldo()-5000000));
+                            System.out.println("Dengan Sisa Saldo           :Rp." + (masuk.getSaldo() - 5000000));
                         }
-                        
-                        
-                        
+
                     case 4:
+                        System.out.println("        ====================================");
+                        System.out.println("        ==========TRANSFER LAIN LAIN========");
+                        System.out.println("        ====================================");
+                        System.out.print("Masukkan Nomer Rekening Tujuan Anda   : ");
+                        norek = in.nextInt();
+                        masuk.norek(norek);
+                        System.out.print("Masukkan Jumlah Nominal Transfer Anda : ");
+                        transfer = in.nextInt();
+                        masuk.transfer(transfer);
+                        System.out.print("Masukkan Agenda Transfer Anda         : ");
+                        agenda = in.next();
+                        masuk.agendaTransfer(agenda);
+                        System.out.println("=============================================");
+                        System.out.println("Proses sedang berlangsung Silahkan tunggu....");
+                        masuk.tampilanTransfer();
+                        System.out.println("TRANSAKSI TELAH BERHASIL.");
+                        break;
+
                     case 5:
                         System.out.println("    TERIMA KASIH SUDAH MENGGUNAKAN ATM KAMI");
                         System.out.println("    =============PROGRAM CLOSED============");
