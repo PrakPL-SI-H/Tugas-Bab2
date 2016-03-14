@@ -2,8 +2,8 @@
 public class Nasabah {
     final String nasabah [][] = {{"1234510","1234","Jason Mraz"},{"1234511","1010","Muh. Asdar"}};
     int saldo;
-    Proses nsbhproses = new Proses();
     
+    //saldo jason mraz
     public Nasabah(){
         saldo = 5000000;
     }
@@ -17,4 +17,17 @@ public class Nasabah {
         System.out.println("No. Rekening = " + nasabah[i][0]);
         System.out.println("Nama         = " + nasabah[i][2]);
     }
+    
+    public void showSaldo(){
+        System.out.println("Saldo saat ini = " + saldo);
+    }
+    
+    public void saldoKurang(int saldokurang){
+        saldo -= saldokurang;
+    }
+    
+    public void transfer(int transfer){
+        saldoKurang(transfer);
+    }
+    
 }   
