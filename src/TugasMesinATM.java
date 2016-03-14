@@ -80,7 +80,7 @@ public class TugasMesinATM {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         Data masuk = new Data(31081996);
-        masuk.setSaldo(7000000);
+        masuk.setSaldo(9000000);
         System.out.println("    =====ATM BAHTIAR JAYA ABADI=====");
         System.out.println();
 
@@ -95,9 +95,11 @@ public class TugasMesinATM {
                 pil = in.nextInt();
                 switch (pil) {
                     case 1:
+                        System.out.println("");
                         masuk.tampilansaldo();
                         break;
                     case 2:
+                        System.out.println("");
                         System.out.println("        ====================================");
                         System.out.println("        =============TRANSFER UANG==========");
                         System.out.println("        ====================================");
@@ -117,8 +119,9 @@ public class TugasMesinATM {
                         break;
 
                     case 3:
+                        System.out.println("");
                         masuk.penarikan();
-                        System.out.println("Masukkan Pilihan Anda : ");
+                        System.out.print("Masukkan Pilihan Anda : ");
                         int uang = in.nextInt();
                         if (uang == 1) {
                             System.out.println("Uang Yang Anda Ambil Sebesar Rp.50.000");
@@ -133,8 +136,10 @@ public class TugasMesinATM {
                             System.out.println("Uang Yang Anda Ambil Sebesar Rp.5000.000");
                             System.out.println("Dengan Sisa Saldo           :Rp." + (masuk.getSaldo() - 5000000));
                         }
+                        break;
 
                     case 4:
+                        System.out.println("");
                         System.out.println("        ====================================");
                         System.out.println("        ==========TRANSFER LAIN LAIN========");
                         System.out.println("        ====================================");
@@ -157,6 +162,7 @@ public class TugasMesinATM {
                     case 5:
                         System.out.println("    TERIMA KASIH SUDAH MENGGUNAKAN ATM KAMI");
                         System.out.println("    =============PROGRAM CLOSED============");
+                        break;
 
                 }
             } while (pil != 5);
