@@ -11,7 +11,7 @@ class Data {
         pin = x;
 
     }
-
+//meng-set nilai pada pin dan saldo
     public void setPin(int password) {
         this.pin = password;
     }
@@ -20,7 +20,7 @@ class Data {
         this.saldo = saldo;
     }
 
-//------------------------------------ getter
+// untuk memunculkan nilai pin dan Saldo
     public int getPin() {
         return pin;
     }
@@ -49,6 +49,13 @@ public class TugasMesinATM {
             tampilanMenu();
             System.out.print("Masukan Pilihan Anda : ");
             int pil = in.nextInt();
+            switch(pil){
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+            }
         } else {
             System.out.println();
             System.out.println("           ===LOGIN GAGAL===");
