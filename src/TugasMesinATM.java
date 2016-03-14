@@ -78,6 +78,13 @@ public class TugasMesinATM {
                         System.out.println("        ====================================");
                         System.out.println("Sisa Saldo Yang Anda Miliki Adalah Sebesar : Rp." + masuk.getSaldo() + "0");break;
                     case 2:
+                        System.out.println("        ====================================");
+                        System.out.println("        =============TRANSFER UANG==========");
+                        System.out.println("        ====================================");
+                        System.out.print("Masukkan Nomer Rekening Tujuan Anda   : ");
+                        int norek=in.nextInt();
+                        masuk.norek(norek);
+                        
                         
                     case 3:
                     case 4:
