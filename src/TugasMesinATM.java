@@ -87,6 +87,9 @@ public class TugasMesinATM {
                         System.out.print("Masukkan Jumlah Nominal Transfer Anda : ");
                         double transfer=in.nextInt();
                         masuk.transfer(transfer);
+                        System.out.print("Masukkan Agenda Transfer Anda         : ");
+                        String agenda=in.next();
+                        masuk.agendaTransfer(agenda);
                         
                         
                     case 3:
