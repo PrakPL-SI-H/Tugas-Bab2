@@ -42,6 +42,18 @@ class Data {
     public String agendaTransfer(String x) {
         return agenda = x;
     }
+    public void penarikan(){
+        System.out.println("|=======================================================|");
+        System.out.print("|               > PILIH NOMINAL PENARIKAN <             |");
+        System.out.println();
+        System.out.print("|   [1] Rp.50.000               [2] Rp.1.000.000        |");
+        System.out.println();
+        System.out.print("|   [3] Rp.100.000              [4] Rp.5.000.000        |");
+        System.out.println();
+        System.out.println("|                     [5] Keluar                        |");
+        System.out.println("|=======================================================|");
+        
+    }
 
     public void tampilanTransfer() {
         System.out.println("Nomer Rekening tujuan : " + norek);
@@ -70,6 +82,7 @@ public class TugasMesinATM {
         masuk.setSaldo(7000000);
         System.out.println("    =====ATM BAHTIAR JAYA ABADI=====");
         System.out.println();
+        masuk.penarikan();
 
         System.out.print("Masukkan PIN Anda  :");
         int pin = in.nextInt();
@@ -104,6 +117,7 @@ public class TugasMesinATM {
                         break;
 
                     case 3:
+                        
                     case 4:
                     case 5:
                         System.out.println("    TERIMA KASIH SUDAH MENGGUNAKAN ATM KAMI");
