@@ -7,10 +7,11 @@ class Data {
     int pin;
     Double saldo;
 
-    public Data(int x) {
-        pin = x;
+    public Data(int pass) {
+        pin = pass;
 
     }
+
 //meng-set nilai pada pin dan saldo
     public void setPin(int password) {
         this.pin = password;
@@ -40,6 +41,7 @@ public class TugasMesinATM {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         Data masuk = new Data(31081996);
+        masuk.setSaldo(7000000);
         System.out.println("    =====ATM BAHTIAR JAYA ABADI=====");
         System.out.println();
 
@@ -47,15 +49,23 @@ public class TugasMesinATM {
         int pin = in.nextInt();
         if (masuk.getPin() == pin) {
             tampilanMenu();
-            System.out.print("Masukan Pilihan Anda : ");
-            int pil = in.nextInt();
-            switch(pil){
+            int pil;
+            do {
+                System.out.println("");
+                System.out.print("Masukan Pilihan Anda : ");
+                pil = in.nextInt();
+                switch (pil) {
                     case 1:
+                        System.out.println("        ====================================");
+                        System.out.println("        =============LIHAT SALDO============");
+                        System.out.println("        ====================================");
+                        System.out.println("Sisa Saldo Yang Anda Miliki Adalah Sebesar : Rp." + masuk.getSaldo()+"0");
                     case 2:
                     case 3:
                     case 4:
                     case 5:
-            }
+                }
+            } while (pil != 5);
         } else {
             System.out.println();
             System.out.println("           ===LOGIN GAGAL===");
