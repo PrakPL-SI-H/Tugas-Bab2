@@ -4,19 +4,19 @@ import java.util.Scanner;
 public class LatihanBab2 {
     
     public static void main(String[] args) {
-        
+        String batas = ("----------------------------------------------------");
         Scanner in = new Scanner(System.in);
         Nasabah user = new Nasabah();
         boolean usr = false;
         do {
-            System.out.println("Anjungan Tunai Jomblo");
-            System.out.print("No. Rekening= ");
+            System.out.println("===== Anjungan Tunai Jomblo =====");
+            System.out.print("No. Rekening = ");
             String norek = in.next();
-            System.out.print("Pin         = ");
+            System.out.print("Pin          = ");
             String pin = in.next(); //nim
             for (int i = 0; i < user.nasabah.length; i++) {
                 if ((norek.equals(user.nasabah[i][0]) && pin.equals(user.nasabah[i][1]))) {
-                    System.out.println("=======================================");
+                    System.out.println("=================================");
                     if (i == 1) {
                         user = new Nasabah(1);
                     }
@@ -26,11 +26,11 @@ public class LatihanBab2 {
             }
             if (usr == false){
                 System.out.println("Data Tidak Ditemukan");
+                System.out.printf("%.33s\n", batas); 
             }
         } while (usr != true);
         
         int pilihan;
-        String batas = ("----------------------------------------------------");
         do {
             System.out.printf("%.40s\n", batas);
             System.out.println("1. Cek Saldo");
@@ -47,7 +47,7 @@ public class LatihanBab2 {
                     break;
                 case 2:
                     System.out.println("\tTARIK TUNAI");
-                    System.out.print("Masukan Jumlah Penarukan = ");
+                    System.out.print("Masukan Jumlah Penarikan = ");
                     user.saldoKurang(in.nextInt());
                     System.out.println("Penarikan berhasil");
                     break;
@@ -61,7 +61,7 @@ public class LatihanBab2 {
                     System.out.println("\tTujuan");
                     System.out.println("No.Rekening     = " + rektujuan);
                     System.out.println("Jumlah Transfer = " + transfer);
-                    System.out.println("Lanjutkan ? (y/n)");
+                    System.out.print("Lanjutkan ? (y/n)");
                     String pilih = in.next();
                     if (pilih.equalsIgnoreCase("y")){
                         user.saldoKurang(transfer);
@@ -76,6 +76,6 @@ public class LatihanBab2 {
                         System.out.println("Maaf, Pilihan Tidak Tersedia");
             }
         } while (pilihan != 0);
-        System.out.println("Terima Kasih");
+        System.out.println("\tTerima Kasih");
     }
 }
