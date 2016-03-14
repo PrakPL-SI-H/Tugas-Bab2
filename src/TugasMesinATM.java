@@ -48,7 +48,7 @@ class Data {
         System.out.println();
         System.out.print("|   [1] Rp.50.000               [2] Rp.1.000.000        |");
         System.out.println();
-        System.out.print("|   [3] Rp.100.000              [4] Rp.5.000.000        |");
+        System.out.print("|   [3] Rp.1500.000             [4] Rp.5.000.000        |");
         System.out.println();
         System.out.println("|                     [5] Keluar                        |");
         System.out.println("|=======================================================|");
@@ -124,6 +124,19 @@ public class TugasMesinATM {
                             System.out.println("Uang Yang Anda Ambil Sebesar Rp.50.000");
                             System.out.println("Dengan Sisa Saldo           :Rp."+(masuk.getSaldo()-50000));
                         }
+                        else if(uang==2){
+                            System.out.println("Uang Yang Anda Ambil Sebesar Rp.1000.000");
+                            System.out.println("Dengan Sisa Saldo           :Rp."+(masuk.getSaldo()-1000000));
+                        }
+                        else if(uang==3){
+                            System.out.println("Uang Yang Anda Ambil Sebesar Rp.1500.000");
+                            System.out.println("Dengan Sisa Saldo           :Rp."+(masuk.getSaldo()-1500000));
+                        }
+                        else if(uang==4){
+                            System.out.println("Uang Yang Anda Ambil Sebesar Rp.5000.000");
+                            System.out.println("Dengan Sisa Saldo           :Rp."+(masuk.getSaldo()-5000000));
+                        }
+                        
                         
                         
                     case 4:
