@@ -106,6 +106,8 @@ public class TugasMesinATM {
                     case 3:
                     case 4:
                     case 5:
+                        System.out.println("    TERIMA KASIH SUDAH MENGGUNAKAN ATM KAMI");
+                        System.out.println("    =============PROGRAM CLOSED============");
 
                 }
             } while (pil != 5);
