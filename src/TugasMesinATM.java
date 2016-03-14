@@ -82,7 +82,7 @@ public class TugasMesinATM {
         masuk.setSaldo(7000000);
         System.out.println("    =====ATM BAHTIAR JAYA ABADI=====");
         System.out.println();
-        masuk.penarikan();
+        
 
         System.out.print("Masukkan PIN Anda  :");
         int pin = in.nextInt();
@@ -117,6 +117,14 @@ public class TugasMesinATM {
                         break;
 
                     case 3:
+                        masuk.penarikan();
+                        System.out.println("Masukkan Pilihan Anda : ");
+                        int uang=in.nextInt();
+                        if(uang==1){
+                            System.out.println("Uang Yang Anda Ambil Sebesar Rp.50.000");
+                            System.out.println("Dengan Sisa Saldo           :Rp."+(masuk.getSaldo()-50000));
+                        }
+                        
                         
                     case 4:
                     case 5:
