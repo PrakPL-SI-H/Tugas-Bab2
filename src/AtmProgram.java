@@ -63,3 +63,31 @@ public class AtmProgram {
                 break;
         }
     }
+
+    public void login() {
+        int pin;
+        atm.setPin(12345678);
+        System.out.println("=======================================================");
+        System.out.print("|");
+        System.out.print("\tSelamat Datang di ATM Bank Ambang          |");
+        System.out.println();
+        System.out.println("=======================================================");
+        System.out.print("\t     Masukan PIN : ");
+        pin = s.nextInt();
+        if (atm.getPin() == pin) {
+            menu();
+        } else {
+            System.out.println("Gagal");
+            login();
+        }
+    }
+
+
+    public void lihatSaldo() {
+        System.out.println("=======================================================");
+        System.out.println("\t         Lihat Saldo ");
+        System.out.println("=======================================================");
+        System.out.println("Sisa Saldo yang Anda miliki adalah sebesar Rp." + atm.getSaldo());
+        transaksiLagi();
+
+    }
