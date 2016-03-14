@@ -47,6 +47,8 @@ public class TugasMesinATM {
         int pin = in.nextInt();
         if (masuk.getPin() == pin) {
             tampilanMenu();
+            System.out.print("Masukan Pilihan Anda : ");
+            int pil = in.nextInt();
         } else {
             System.out.println();
             System.out.println("           ===LOGIN GAGAL===");
