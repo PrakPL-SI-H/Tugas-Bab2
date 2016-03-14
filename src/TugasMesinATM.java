@@ -4,8 +4,9 @@ import java.util.Scanner;
 
 class Data {
 
-    int pin;
-    Double saldo;
+    int pin, norek;
+    Double saldo, transfer;
+    String agenda;
 
     public Data(int pass) {
         pin = pass;
@@ -28,6 +29,22 @@ class Data {
 
     public double getSaldo() {
         return saldo;
+    }
+
+    public double transfer(double x) {
+        return transfer = x;
+    }
+
+    public int norek(int x) {
+        return norek = x;
+    }
+    public String agendaTransfer(String x){
+        return agenda=x;
+    }
+    public void tampilanTransfer(){
+        System.out.println("Nomer Rekening tujuan : "+norek);
+        System.out.println("Nominal Transfer      : Rp."+transfer+"0");
+        System.out.println("Agenda Transfer       : "+agenda);
     }
 }
 
@@ -59,11 +76,14 @@ public class TugasMesinATM {
                         System.out.println("        ====================================");
                         System.out.println("        =============LIHAT SALDO============");
                         System.out.println("        ====================================");
-                        System.out.println("Sisa Saldo Yang Anda Miliki Adalah Sebesar : Rp." + masuk.getSaldo()+"0");
+                        System.out.println("Sisa Saldo Yang Anda Miliki Adalah Sebesar : Rp." + masuk.getSaldo() + "0");break;
                     case 2:
+                        
                     case 3:
                     case 4:
                     case 5:
+                        
+                        
                 }
             } while (pil != 5);
         } else {
