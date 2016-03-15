@@ -34,5 +34,25 @@ public class ATM {
         }
         return o;
     }
+    double infoSaldo(){
+        System.out.println("Saldo anda : Rp." +saldo);
+        return saldo;
+    }
     
+    protected double penarikan(){
+        Scanner input=new Scanner(System.in);
+        System.out.print("Masukkan jumlah penarikan : Rp ");
+        double tarik=input.nextDouble();
+        double out=0;
+        if (tarik>saldo){
+            System.out.println("saldo tidak mencukupi");
+             System.out.println("Sisa saldo anda adalah Rp" +saldo);
+        }else{
+            System.out.println("user telah melakukan penarikan sejumlah Rp." +tarik);
+            saldo-=tarik;
+            out= saldo;
+             System.out.println("Sisa saldo anda adalah Rp" +saldo);
+        }
+        return out;
+    }
 }
