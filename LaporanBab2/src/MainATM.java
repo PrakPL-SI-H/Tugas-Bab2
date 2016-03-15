@@ -11,6 +11,7 @@ public class MainATM {
    int pilihan,saldo;
    ATM nasabah []= new ATM [100];
    String nip;
+   String noRekTrans;
    
    do {
        nasabah [i] = new ATM();
@@ -44,16 +45,56 @@ public class MainATM {
                 nasabah[x].menuPertama();
                 System.out.print("Masukkan Pilihan Anda : ");
                 pil1 = in.nextInt();
-                if (pil==8){
-                   
+                if (pil1==8){
+                   do {
                         nasabah[x].menuKedua();
-                    
+                        pilihan = in.nextInt();
+                        switch (pilihan){
+                            case 1 : 
+                            nasabah[x].showSaldo();
+                                break;
+                            case 2 : 
+                                System.out.print("Masukkan Jumlah Uang Yang Ingin Diambil (Kelipatan RP. 50.000) : Rp. ");
+                                nasabah[x].setJumlahTarik(in.nextInt());
+                                nasabah[x].tarikSaldo();
+                                break;
+                            case 3 : 
+                                System.out.print("Masukkan Nomor Rekening Yang Dituju\t\t: ");
+                                noRekTrans = in.nextLine();
+                                in.nextInt();
+                                System.out.print("Masukkan Jumlah Uang Yang Akan Ditransfer\t: RP. ");
+                                nasabah[x].setJumlahTransfer(in.nextInt());
+                                nasabah[x].transferUang();
+                                break;
+                            case 4 : 
+                                System.out.println("TERIMA KASIH TELAH MENGGUNAKAN LAYANAN BANK FORZA");
+                                break;
+                            default : System.out.println("Maaf Pilihan Yang Anda Masukkan Salah Silahkan Coba Lagi");                     
+                        }
+                        if (pilihan ==4 ){
+                            return;
+                        }else {
+                            System.out.println("Ingin Melakukan Transaksi Lagi?\n"
+                                    + "1. Ya\n"
+                                    + "2. Tidak");
+                            System.out.print("Pilihan Anda : ");
+                            pil2 = in.nextInt();
+                            nasabah[x].seleksiLagi(pil2);
+                            if (nasabah[x].seleksiLagi(pil2)==false){
+                                System.out.println("TERIMA KASIh TELAH MENGGUNAKAN LAYANAN BANK FORZA");
+                                return;
+                            }else {continue;
+                            }
+                        }
+                   }while (pilihan!=4);
+                }else { nasabah[x].seleksimenuPertama(pil1);
+                    break;
                 }
-               
+            }else {if (x==(i-1)){
+                System.out.println("PIN YANG ANDA MASUKKAN SALAH, SILAHKAN COBA LAGI");
+            }else {continue;
             }
+        } 
         }
-   
-   
-   
 }
 }
