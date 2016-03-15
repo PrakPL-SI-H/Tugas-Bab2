@@ -91,3 +91,38 @@ public class AtmProgram {
         transaksiLagi();
 
     }
+    public void transfer() {
+        int norek;
+        double nom;
+        Scanner scan = new Scanner(System.in);
+        System.out.println("=======================================================");
+        System.out.print("|");
+        System.out.print("\tTransfer                    |");
+        System.out.println();
+        System.out.println("=======================================================");
+        System.out.print("\tMasukan Nomor Rekening : ");
+        norek = s.nextInt();
+        System.out.println();
+        System.out.print("\tMasukan Nominal Transfer : ");
+        nom = scan.nextDouble();
+        transferNominal(nom, norek);
+    }
+
+    public void transferNominal(double nominal, int norek) {
+        double saldo = atm.getSaldo();
+        if (atm.getSaldo() < 50000) {
+            System.out.println("\tMaaf Saldo Anda tidak mencukupi.");
+        } else {
+            saldo -= nominal;
+            if (saldo < minSaldo) {
+                System.out.println("\tMaaf, jumlah transfer terlalu besar");
+                System.out.println("\t    Sisa saldo tidak mencukupi");
+            } else {
+                atm.setSaldo(saldo);
+                System.out.println("Anda telah berhasil melakukan transfer sebesar : " + nominal);
+                System.out.println("Ke nomor rekening : " + norek);
+                System.out.println("\t       Sisa Saldo adalah :" + saldo);
+            }
+            transaksiLagi();
+        }
+    }
