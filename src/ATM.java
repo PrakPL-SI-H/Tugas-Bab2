@@ -14,7 +14,11 @@ public class ATM {
         System.out.println("2. Tarik Uang ");
         System.out.println("3. Transfer Uang ");
         System.out.println("4. Keluar Menu");   
-        System.out.println("=============================================");
-    
+        System.out.println("=============================================");    
     }
+    public void transfer() {
+        System.out.println("Terimakasih anda sudah melakukan transaksi ");
+        System.out.println("Saldo anda saat ini adalah : " + (saldo - nominal));
+    }
+
 }
