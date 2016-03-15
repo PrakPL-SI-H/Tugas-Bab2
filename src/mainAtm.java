@@ -32,5 +32,34 @@ class mainAtm {
             System.out.print("Masukan pilihan anda       : ");
             pilih = input.nextInt();
 
+            if (pilih == 1) {
+                Modul2.penarikan();
+            } else if (pilih == 2) {
+                Modul2.infoSaldo();
+            } else if (pilih == 3) {
+                System.out.println("=== Pilih Bank ===");
+                System.out.println("1. Bank yang sama");
+                System.out.println("2. Bank yang berbeda");
+                System.out.print("Masukan pilihan anda      : ");
+                pilihbank = input.nextInt();
+                if (pilihbank == 1) {
+                    Modul2.transfer(nomerr, duit);
+                }
+                if (pilihbank == 2) {
+                    Modul2.transfer(nomerr, duit, jenengb);
+                } else {
+                    System.out.println("Maaf inputan salah");
+                }
+            } else if (pilih == 4) {
+                System.out.println("====Terimakasih atas kunjungan anda====");
+                break;
+            } else {
+                System.out.println("Maaf menu tidak tersedia");
+            }
+            System.out.print("Apakah anda ingin bertransaksi lagi [y/t] : ");
+            back = input.next();
+            i++;
+        } while (back.equals("y") || back.equals("Y"));
+        System.out.println("====Terimakasih atas kunjungan anda====");
     }
 }
