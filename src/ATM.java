@@ -35,7 +35,7 @@ public class ATM {
         switch (confirm) {
             case "y":
                 uangKeluar();
-                if (saldo <= 0) {
+                if (saldo < 0) {
                     saldo += out;
                     System.out.println("Saldo tidak mencukupi. Transaksi dibatalkan..");
                     break;
@@ -50,5 +50,10 @@ public class ATM {
                 System.out.println("Wrong Input! Transaksi dibatalkan..");
                 break;
         }
+    }
+
+    public void dataTransfer() {
+        System.out.println("Anda akan mentransfer ke nomor rekening: " + rekLain);
+        System.out.println("Dengan jumlah transfer: Rp " + out);
     }
 }

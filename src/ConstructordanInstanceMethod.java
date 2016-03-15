@@ -36,15 +36,15 @@ public class ConstructordanInstanceMethod {
                     }
                 case 3:
                     if (nasabah.saldo > 0) {
+                        System.out.println("Transfer ke rekening lain");
                         System.out.print("Input rekening tujuan: ");
                         nasabah.rekLain = in.nextLong();
-                        System.out.println("Transfer dengan kelipatan 50000");
                         System.out.print("Input nominal: ");
                         nasabah.out = in.nextInt();
+                        nasabah.dataTransfer();
                         System.out.print("Anda yakin? (y/n): ");
                         nasabah.confirm = in.next();
                         nasabah.konfirmasi();
-                        nasabah.uangKeluar();
                         break;
                     } else {
                         System.out.println("Saldo Anda tidak mecukupi untuk melakukan transfer");
