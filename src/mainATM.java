@@ -18,12 +18,50 @@ public class mainATM {
                 case 1:
                     atm1.cekSaldo();
                     System.out.println("");
+                    pilihan = ulang();
                     break;
                 case 2:
                     System.out.print("Masukan nominal yang diinginkan   : ");
                     atm1.tarikTunai = in.nextInt();
                     atm1.tarikUang();
+                    pilihan = ulang();
                     break;
                 case 3:
+                    do {
+                        System.out.println("==============Menu Bank==============");
+                        System.out.println("1. SYARIAH=01          4. BTPN=06");
+                        System.out.println("2. BNI=02          5. BI=07");
+                        System.out.println("3. Mandiri=03      6. Niaga=06");                              
+                        System.out.println("======================================");
+                    System.out.print("Masukka Kode Bank : ");
+                        atm1.kode = in.nextInt();
+                        System.out.print("Masukan nomor rekening tujuan anda        : ");
+                        atm1.norek = in.nextInt();
+                        System.out.print("Masukan nama penerima                     : ");
+                        in.nextLine();
+                        atm1.nama = in.nextLine();
+                        System.out.print("Masukan nominal transfer : ");
+                        atm1.nominal = in.nextInt();
+                        System.out.println("Anda akan mentransfer kepada " + atm1.nama + " dengan nominal " + atm1.nominal + ".");
+                        System.out.println("");
+                        System.out.println("Apakah data yang diatas sudah benar?");
+                        System.out.println("1. Iya");
+                        System.out.println("2. Tidak");
+                        pilih2 = in.nextInt();
+                    } while (pilih2 != 1);
+                    atm1.transfer();
+                    pilihan = ulang();
+                    break;
+                case 4:
+                    System.out.println("Terimakasih sudah melakukan transaksi");
+                    System.out.println("Silahkan ambil kartu ATM anda");
+                    break;
+                default:
+                    System.out.println("Maaf pilihan anda tidak terdaftar");
+                    break;
+            }
+        } while (pilihan != 4);
+    }
+
                     
 }
