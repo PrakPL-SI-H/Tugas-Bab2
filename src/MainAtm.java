@@ -1,3 +1,6 @@
+//Nama : Felix Yosa H. S.
+//NIM : 155150400111129
+//Kelas : SI-H
 package tugas1.pkg2;
 
 import java.util.Scanner;
@@ -11,9 +14,11 @@ public class MainAtm{
         Atm atm2 = new Atm();
         
         Scanner in = new Scanner(System.in);
-
+        System.out.println("====SELAMAT DATANG=====");
+        System.out.println("====DI BANK FELIX======");
         System.out.print("Masukkan password : ");
         password = in.nextInt();
+        System.out.println("");
         if (password == 123456) {
             do {
                 System.out.println("MENU");
@@ -27,10 +32,12 @@ public class MainAtm{
                 switch(pilih){
                     case 1:
                         atm.lihatSaldo();
+                        System.out.println("");
                         break;
                     case 2:
                         System.out.print("Masukkan uang : ");
                         atm.tarikUang(in.nextInt());
+                        System.out.println("");
                         break;
                     case 3:
                         System.out.print("Masukkan no rek tujuan : ");
@@ -38,6 +45,13 @@ public class MainAtm{
                         System.out.print("Masukkan jumlah uang : ");
                         atm.kirim = in.nextInt();
                         atm.transferUang(atm2);
+                        System.out.println("");
+                        break;
+                    case 0 :
+                        System.out.println("Terima kasih");
+                        break;
+                    default :
+                        System.out.println("Maaf pilihan tidak ada");
                         break;
                 }
             } while (pilih != 0);
