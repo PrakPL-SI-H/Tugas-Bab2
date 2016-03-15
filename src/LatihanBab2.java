@@ -46,6 +46,27 @@ private double saldo, sisaSaldo, tarik, transfer;
         }
     }
 
+     public void pil3() {
+        System.out.print("Masukkan Nomer Rekening tujuan : ");
+        noRek = input.next();
+        System.out.print("Masukkan Nominal yang akan ditransfer : Rp.");
+        transfer = input.nextDouble();
+        if (saldo >= transfer) {
+            System.out.println("*****************************************************");
+            System.out.println("Anda telah melakukan transfer sejumlah uang Rp." + transfer);
+            System.out.println("pada Nomor Rekening " + noRek);
+            sisaSaldo = saldo - transfer;
+            saldo = sisaSaldo;
+            System.out.println("Sisa saldo Anda saat ini Rp." + saldo);
+            menuOpsi();
+        } else {
+            System.err.println("Transaksi Anda TIDAK Berhasil :D");
+            System.out.println("=====================================================");
+            System.out.println("");
+            pil3();
+        }
+    }
+    
 public class LatihanBab1 {
     public static void main(String[] args) {
         
