@@ -62,6 +62,12 @@ public class ATM {
          System.out.printf("%s %30s\n","4. <= 300.000","TRANSAKSI LAIN => 8.");
          
      }
+     public void menuKedua (){
+         System.out.println("\nPILIH JENIS TRANSAKSI\n");
+         System.out.printf("%s %30s\n","1.<= INFO SALDO", "TRANSFER =>3.");
+         System.out.printf("%s %30s\n","2.<= PENARIKAN", "KELUAR =>4.");
+         
+     }
      public void seleksimenuPertama (int pil1){
          switch (pil1){
              case 1 : jumlahTarik = 50000;

@@ -44,6 +44,11 @@ public class MainATM {
                 nasabah[x].menuPertama();
                 System.out.print("Masukkan Pilihan Anda : ");
                 pil1 = in.nextInt();
+                if (pil==8){
+                   
+                        nasabah[x].menuKedua();
+                    
+                }
                
             }
         }
