@@ -11,8 +11,7 @@
 import java.util.Scanner;
 
 class atm {
-
-    private double saldo, sisaSaldo, tarik, transfer;
+private double saldo, sisaSaldo, tarik, transfer;
     public String noRek, kartuATM;
     public int pilihan, PIN;
     Scanner input = new Scanner(System.in);
@@ -128,6 +127,7 @@ class atm {
         System.err.println("Silahkan ambil Kartu ATM Anda");
     }
 }
+
 
 public class LatihanBab1 {
 
