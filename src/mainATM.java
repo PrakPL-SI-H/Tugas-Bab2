@@ -62,6 +62,18 @@ public class mainATM {
             }
         } while (pilihan != 4);
     }
+        private static int ulang() {
+        int pilihan = 0;
+        Scanner in = new Scanner(System.in);
+        System.out.print("Ingin transaksi lagi (Y/N) : ");
+        String pilih = in.next();
+        if (pilih.equals("N")) {
+                        System.out.println("Terima kasih telah melakukan transaksi");
+            System.out.println("Silahkan ambil kartu ATM anda");
+            pilihan = 4;
+        }
+        return pilihan;
+    }
 
-                    
 }
+
