@@ -54,6 +54,22 @@ public class ATM {
      }else { System.out.println("Saldo Anda Kurang Untuk Melakukan Transaksi Ini");
              }    
        }
+     public void setJumlahTransfer (int JTR){
+         jumlahTransfer = JTR;
+     }
+     public int jumlahTransfer(){
+         return jumlahTransfer;
+     }
+     public void transferUang(){
+         if (saldo > 500000){
+             if ((saldo-50000)>= jumlahTransfer){
+                 saldo -= jumlahTransfer;
+                 System.out.println("Uang Anda Berhasil Dikirim");
+                 System.out.println("Jumlah Saldo Anda Saat Ini Adalah : Rp. "+saldo);
+             } else {System.out.println("Saldo Anda Kurang Untuk Melakukan Transaksi Ini");
+             }
+         }else {System.out.println("Saldo Anda Kurang Untuk Melakukan Transaksi Ini");}
+     }
      public void menuPertama (){
          System.out.println("\nPILIH JUMLAH PAKET TUNAI\n");
          System.out.printf("%s %30s\n","1. <= 50.000","500.000 => 5.");
@@ -67,6 +83,9 @@ public class ATM {
          System.out.printf("%s %30s\n","1.<= INFO SALDO", "TRANSFER =>3.");
          System.out.printf("%s %30s\n","2.<= PENARIKAN", "KELUAR =>4.");
          
+     }
+     public boolean seleksiLagi (int kodelagi){
+         return (kodelagi==1);
      }
      public void seleksimenuPertama (int pil1){
          switch (pil1){
