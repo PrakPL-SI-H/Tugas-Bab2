@@ -65,4 +65,48 @@ public class Atm {
         return firstsaldo;
     }
 
+    public void transfer(int norek, int money) {
+        rek = norek;
+        nomtransfer = money;
+        int i = 0;
+        do {
+            System.out.print("masukan nomer rekening     : ");
+            rek = input.nextDouble();
+            System.out.print("masukan nominal transfer   : ");
+            nomtransfer = input.nextInt();
+            if (nomtransfer > firstsaldo) {
+                System.out.println("Maaf, saldo anda tidak mencukupi");
+                System.out.println("Silahkan masukan nominal yang lebih kecil");
+            } else {
+                System.out.println("Transfer berhasil, nominal transfer sebesar : " + nomtransfer);
+                firstsaldo = firstsaldo - nomtransfer;
+            }
+            i++;
+
+        } while (nomtransfer > firstsaldo);
+    }
+
+    public void transfer(int norek, int money, String bankname) {
+        rek = norek;
+        nomtransfer = money;
+        namaBank = bankname;
+
+        int i = 0;
+        do {
+            System.out.print("Masukan Nomer Rekening     : ");
+            rek = input.nextDouble();
+            System.out.print("Masukan Nama Bank          : ");
+            bankname = input.next();
+            System.out.print("Masukan Nominal Transfer   : ");
+            nomtransfer = input.nextInt();
+            if (nomtransfer > firstsaldo) {
+                System.out.println("Mohon Maaf, saldo anda tidak mencukupi");
+                System.out.println("Silahkan masukan nominal yang lebih kecil");
+            } else {
+                System.out.println("Transfer berhasil, nominal transfer sebesar : " + nomtransfer);
+                firstsaldo = firstsaldo - nomtransfer;
+            }
+            i++;
+        } while (nomtransfer > firstsaldo);
+    }
 }
