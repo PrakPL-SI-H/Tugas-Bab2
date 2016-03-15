@@ -55,4 +55,26 @@ public class ATM {
         }
         return out;
     }
+    void transfer(int norek, double jml){
+        if (saldo>jml){
+            saldo-=jml;
+            System.out.println("user telah melakukan transfer sejumlah Rp."+ jml +" pada nomor rekening "+ norek);
+            System.out.println("Sisa saldo anda adalah Rp" +saldo);
+        }else{
+            System.out.println("saldo tidak mencukupi");
+            System.out.println("Sisa saldo anda adalah Rp" +saldo);
+        }
+    }
+    
+    void transfer(int norek, String nmBank, double jml){
+        
+        if (saldo>jml){
+            saldo-=jml;
+            System.out.println("user telah melakukan transfer sejumlah Rp." + jml +" pada nomor rekening "+ norek +" pada bank "+ nmBank);
+             System.out.println("Sisa saldo anda adalah Rp" +saldo);
+        }else{
+            System.out.println("saldo tidak mencukupi"); 
+             System.out.println("Sisa saldo anda adalah Rp" +saldo);
+}
+    }
 }
