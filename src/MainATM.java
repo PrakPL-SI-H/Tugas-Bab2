@@ -38,11 +38,43 @@ public class MainATM {
                             int noreki;
                             String nmBanki;
                             double jmli;
+                           switch(ms){
+                                case 1:
+                                    System.out.print("Nomor rekening tujuan : ");
+                                    noreki=input.nextInt();
+                                    System.out.print("Jumlah uang yang akan dikirim : Rp.");
+                                    jmli=input.nextInt();
+                                    mesin.transfer(noreki, jmli);
+                                    break;
+                                case 2:
+                                    System.out.print("Nomor rekening tujuan : ");
+                                    noreki=input.nextInt();
+                                    System.out.print("Nama bank tujuan : ");
+                                    nmBanki=input.next();
+                                    System.out.print("Jumlah uang yang akan dikirim : Rp");
+                                    jmli=input.nextInt();
+                                    mesin.transfer(noreki, nmBanki, jmli);
+                                    break;
+                                default:
+                                    break;
+                            }
+                            u--;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }else{
+                System.out.println("! Paassword salah");
+                if (s==0){
+                    break;
+                }else{
+                    s--;
+                    i--;
                 }
             }
         }
     }
-}
 }
 
  
