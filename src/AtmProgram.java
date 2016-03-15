@@ -126,3 +126,92 @@ public class AtmProgram {
             transaksiLagi();
         }
     }
+
+    public void tarik() {
+        double penarikan;
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("=======================================================");
+        System.out.print("|");
+        System.out.print("\t            Penarikan Tunai                   |"
+                + "                |");
+        System.out.println();
+        System.out.println("=======================================================");
+        System.out.print("|");
+        System.out.print("\t           > Pilih Nominal <                  |");
+        System.out.println();
+        System.out.print("|");
+        System.out.print("\t[1] Rp. 100.000          [2] Rp. 200.000      |");
+        System.out.println();
+        System.out.print("|");
+        System.out.print("\t[3] Rp. 500.000          [4] Rp. 1000.0000    |");
+        System.out.println();
+        System.out.print("|");
+        System.out.println("\t[5] Rp. 2000.0000        [6] Penarikan        |");
+        System.out.println("=======================================================");
+        System.out.print("\t         Masukan pilihan Anda : ");
+        pil = s.nextInt();
+        System.out.println("=======================================================");
+        switch (pil) {
+            case 1:
+                tarikNominal(100000);
+                break;
+            case 2:
+                tarikNominal(200000);
+                break;
+            case 3:
+                tarikNominal(500000);
+                break;
+            case 4:
+                tarikNominal(1000000);
+                break;
+            case 5:
+                tarikNominal(2000000);
+                break;
+            case 6:
+                System.out.println("\t         Masukan Nominal : ");
+                System.out.println("=======================================================");
+                System.out.print("Jumlah Penarikan : ");
+                penarikan = scan.nextDouble();
+                tarikNominal(penarikan);
+                break;
+            default:
+                System.out.println("\tPilihan Yang Anda masukan salah");
+                tarik();
+        }
+    }
+
+    public void tarikNominal(double nominal) {
+        double saldo = atm.getSaldo();
+        if (atm.getSaldo() < 50000) {
+            System.out.println("\tMaaf Saldo Anda tidak mencukupi.");
+        } else {
+            saldo -= nominal;
+            if (saldo < minSaldo) {
+                System.out.println("\tMaaf, jumlah penarikan terlalu besar");
+                System.out.println("\t    Sisa saldo tidak mencukupi");
+            } else {
+                atm.setSaldo(saldo);
+                System.out.println("Anda telah berhasil melakukan penarikan sebesar : " + nominal);
+                System.out.println("\t       Sisa Saldo adalah :" + saldo);
+            }
+            transaksiLagi();
+        }
+    }
+
+    public void transaksiLagi() {
+        String warn;
+        Scanner scan = new Scanner(System.in);
+        System.out.println("=======================================================");
+        System.out.print("Apakah Anda ingin melakukan transaksi lagi ? [y/n] ");
+        warn = scan.nextLine();
+        System.out.println();
+        if (warn.equalsIgnoreCase("y")) {
+            login();
+        } else if (warn.equalsIgnoreCase("n")) {
+            System.out.println("=======================================================");
+            System.out.println("\tTerimakasih telah menggunakan layanan kami.");
+            System.out.println("\t      Silahkan Ambil kartu Anda.");
+        }
+    }
+}
