@@ -38,8 +38,10 @@ public class ConstructordanInstanceMethod {
                     System.out.println("Wrong input!");
                     break;
             }
-            System.out.print("Apakah Anda ingin melakukan transaksi lain? (y/n): ");
-            nasabah.again = in.next();
+            do {
+                System.out.print("Apakah Anda ingin melakukan transaksi lain? (y/n): ");
+                nasabah.again = in.next();
+            } while (!"y".equals(nasabah.again) && !"n".equals(nasabah.again));
         } while ("y".equals(nasabah.again));
         System.out.println("<<Silahkan ambil kartu ATM Anda. Terima kasih...>>");
     }
