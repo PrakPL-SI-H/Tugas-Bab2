@@ -20,5 +20,10 @@ public class ATM {
         System.out.println("Terimakasih anda sudah melakukan transaksi ");
         System.out.println("Saldo anda saat ini adalah : " + (saldo - nominal));
     }
+    public void tarikUang() {
+        System.out.println("Uang yang akan anda terik sebesar : " + tarikTunai);
+        System.out.println("Saldo anda saat ini adalah        : " + (saldo - tarikTunai));
+    }
+
 
 }
