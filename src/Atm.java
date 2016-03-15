@@ -16,7 +16,7 @@ public class Atm {
     String namaBank;
     Scanner input = new Scanner(System.in);
 
-   public Atm() {
+    public Atm() {
         String nm = "BRI";
         int pass = 264069;
         password = pass;
@@ -37,6 +37,32 @@ public class Atm {
         } while (userinput1 != password);
     }
 
+    void infoSaldo() {
+        System.out.println("Saldo anda sekarang adalah : " + firstsaldo);
+    }
 
+    int penarikan() {
+        int i = 0;
+        do {
+            System.out.print("Masukan nominal penarikan    : ");
+            penarikan = input.nextInt();
+            if (penarikan > firstsaldo) {
+                System.out.println("Maaf, saldo anda tidak mencukupi");
+                System.out.println("Silahkan masukan nominal yang lebih kecil");
+            }
+
+            if (penarikan < 0) {
+                System.out.println("Maaf anda tidak memasukkan nominal yang benar");
+                System.out.println("Silahkan masukkan nominal yang benar");
+                penarikan();
+            } else {
+                System.out.println("Penarikan berhasil, sebanyak : " + penarikan);
+                System.out.println("Silahkan ambil uang anda ...");
+                firstsaldo = firstsaldo - penarikan;
+            }
+            i++;
+        } while (penarikan > firstsaldo);
+        return firstsaldo;
+    }
 
 }
