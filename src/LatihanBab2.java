@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 /**
  *
  * @author irwin deriyan
@@ -10,7 +11,8 @@
 import java.util.Scanner;
 
 class atm {
-private double saldo, sisaSaldo, tarik, transfer;
+
+    private double saldo, sisaSaldo, tarik, transfer;
     public String noRek, kartuATM;
     public int pilihan, PIN;
     Scanner input = new Scanner(System.in);
@@ -46,7 +48,61 @@ private double saldo, sisaSaldo, tarik, transfer;
         }
     }
 
-     public void pil3() {
+    public void menuOpsi() {
+        System.out.println("=====================================================");
+        System.out.println("1. Informasi Saldo");
+        System.out.println("2. Tarik Tunai");
+        System.out.println("3. Transfer");
+        System.out.println("0. KELUAR");
+        System.out.print("Masukkan pilihan Anda : ");
+        pilihan = input.nextInt();
+        if (pilihan == 1) {
+            System.out.println("");
+            System.out.println("=====================================================");
+            pil1();
+        } else if (pilihan == 2) {
+            System.out.println("");
+            System.out.println("=====================================================");
+            pil2();
+        } else if (pilihan == 3) {
+            System.out.println("");
+            System.out.println("=====================================================");
+            pil3();
+        } else if (pilihan == 0) {
+            System.out.println("");
+            System.out.println("=====================================================");
+            menuKeluar();
+        } else {
+            System.err.println("Anda Tersesat dan Salah Jalan.");
+            System.err.println("ulangi pilihan anda kembali!");
+            menuOpsi();
+        }
+    }
+
+    public void pil1() {
+        System.out.println("Saldo Anda : Rp." + saldo);
+        menuOpsi();
+        System.out.println("=====================================================");
+        System.out.println("");
+    }
+
+    public void pil2() {
+        System.out.print("Masukkan Jumlah Penarikan Rp.");
+        tarik = input.nextDouble();
+        if (tarik > saldo) {
+            System.err.println("Maaf Saldo Anda Tidak Mencukupi.");
+            System.err.println("=====================================================");
+            pil2();
+        } else {
+            sisaSaldo = saldo - tarik;
+            saldo = sisaSaldo;
+            System.out.println("Sisa saldo Anda saat ini Rp." + saldo);
+        }
+        System.out.println("");
+        menuOpsi();
+    }
+
+    public void pil3() {
         System.out.print("Masukkan Nomer Rekening tujuan : ");
         noRek = input.next();
         System.out.print("Masukkan Nominal yang akan ditransfer : Rp.");
@@ -66,12 +122,17 @@ private double saldo, sisaSaldo, tarik, transfer;
             pil3();
         }
     }
-    
-public class LatihanBab1 {
-    public static void main(String[] args) {
-        
-        
-        
+
+    public void menuKeluar() {
+        System.out.println("Terima Kasih");
+        System.err.println("Silahkan ambil Kartu ATM Anda");
     }
-    
+}
+
+public class LatihanBab1 {
+
+    public static void main(String[] args) {
+
+    }
+
 }
