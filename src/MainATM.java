@@ -23,10 +23,26 @@ public class MainATM {
                     System.out.println("3. Transfer");
                     System.out.println("4. Exit");
                     int tbl=input.nextInt();
+                    switch(tbl){
+                        case 1:
+                            mesin.infoSaldo();
+                            u--;
+                            break;
+                        case 2:
+                            mesin.penarikan();
+                            u--;
+                            break;
+                        case 3:
+                            System.out.println("1. Bank sama \n2. Luar \n3. Batalkan");
+                            int ms=input.nextInt();
+                            int noreki;
+                            String nmBanki;
+                            double jmli;
                 }
             }
         }
     }
+}
 }
 
  
