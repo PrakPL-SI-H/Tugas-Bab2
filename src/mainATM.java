@@ -29,9 +29,9 @@ public class mainATM {
                 case 3:
                     do {
                         System.out.println("==============Menu Bank==============");
-                        System.out.println("1. SYARIAH=01          4. BTPN=06");
-                        System.out.println("2. BNI=02          5. BI=07");
-                        System.out.println("3. Mandiri=03      6. Niaga=06");                              
+                        System.out.println("1. SYARIAH             4. BTPN");
+                        System.out.println("2. BNI             5. BI");
+                        System.out.println("3. Mandiri         6. Niaga");                              
                         System.out.println("======================================");
                     System.out.print("Masukka Kode Bank : ");
                         atm1.kode = in.nextInt();
@@ -55,6 +55,7 @@ public class mainATM {
                 case 4:
                     System.out.println("Terimakasih sudah melakukan transaksi");
                     System.out.println("Silahkan ambil kartu ATM anda");
+                    System.out.println("**********************************************");
                     break;
                 default:
                     System.out.println("Maaf pilihan anda tidak terdaftar");
@@ -74,6 +75,5 @@ public class mainATM {
         }
         return pilihan;
     }
-
 }
 
