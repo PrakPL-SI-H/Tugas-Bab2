@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class MainATM {
     
     Scanner in = new Scanner(System.in);
+    ATM uang = new ATM();
     int pilihan;
     int pilihan1;
     int saldo;
@@ -13,9 +14,9 @@ public class MainATM {
     double transfer;
     
     public static void main(String[]args){
-           
+
     }
-    
+
     public void MenuATM(){
         System.out.println("      SELAMAT DATANG     ");
         System.out.println("=========================");
@@ -23,17 +24,26 @@ public class MainATM {
         System.out.println("1. Melihat Saldo");
         System.out.println("2. Penarikan Uang");
         System.out.println("3. Transfer");
+        System.out.println("4. Keluar");
+        System.out.print("Masukkan Pilihan Anda : ");
         pilihan = in.nextInt();
-    }
-    
-    public void setMenuATM(){
         switch (pilihan){
             case 1 :
                 cekSaldo();
+                break;
             case 2 :
                 penarikan();
+                break;
             case 3 :
                 transfer();
+                break;
+            case 4 :
+                System.out.println("Terima Kasih");
+                System.out.println("Silakan Ambil Kartu Anda Kembali");
+                break;
+            default :
+                System.out.println("Pilihan Yang Anda Masukkan Salah");
+                break;
         }
     }
     
@@ -48,21 +58,28 @@ public class MainATM {
         System.out.println("3. Rp750.000,-");
         System.out.println("4. Rp1.000.000,-");
         System.out.println("5. Penarikan dalam jumlah lain");
-            if (penarikan = "1"){
-                System.out.println("Saldo anda tersisa : "+(saldo-250000));
-            }
-            else if (penarikan = "2"){
-                System.out.println("Saldo anda tersisa : "+(saldo-500000));
-            }
-            else if (penarikan = "3"){
-                System.out.println("Saldo anda tersisa : "+(saldo-750000));
-            }
-            else if (penarikan = "4"){
-                System.out.println("Saldo anda tersisa : "+(saldo-1000000));
-            }
-            else if (penarikan = "5"){
-                System.out.println("Saldo anda tersisa : "+(saldo-penarikan1));
-            }
+        int pilihanpenarikan = in.nextInt();
+        switch(pilihanpenarikan){
+            case 1 :
+                System.out.println("Saldo Anda Tersisa : "+(saldo-250000));
+                break;
+            case 2 :
+                System.out.println("Saldo Anda Tersisa : "+(saldo-500000));
+                break;
+            case 3 :
+                System.out.println("Saldo Anda Tersisa : "+(saldo-750000));
+                break;
+            case 4 :
+                System.out.println("Saldo Anda Tersisa : "+(saldo-1000000));
+                break;
+            case 5 :
+                System.out.println("Saldo Anda Tersisa : "+(saldo-penarikan1));
+                break;
+            default:
+                System.out.println("Pilihan Anda Tidak Tersedia");
+                System.out.println("Masukkan Pilihan Penarikan Anda Lagi");
+                penarikan();
+        }
     }
     
     public void transfer(){
