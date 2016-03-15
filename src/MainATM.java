@@ -4,12 +4,14 @@ public class MainATM {
     
     Scanner in = new Scanner(System.in);
     int pilihan;
+    int pilihan1;
     int saldo;
     int saldo1;
     int saldo2;
     String penarikan;
     int penarikan1;
-        
+    double transfer;
+    
     public static void main(String[]args){
            
     }
@@ -64,8 +66,51 @@ public class MainATM {
     }
     
     public void transfer(){
+        int rekening;
+
         System.out.println("Anda memilih transfer. Pilih menu");
         System.out.println("1. Transfer Sesama Bank");
         System.out.println("2. Transfer Antar Bank");
+        pilihan1 = in.nextInt();
+        switch(pilihan1){
+            case 1 :
+                System.out.println("Masukkan Nomor Rekening : ");
+                rekening = in.nextInt();
+                System.out.println("Masukkan Jumlah Transfer : ");
+                transfer = in.nextDouble();
+                transferSesama(rekening, transfer);
+                break;
+            case 2 :
+                System.out.println("Masukkan Nomor Rekening : ");
+                rekening = in.nextInt();
+                System.out.println("Masukkan Jumlah Transfer : ");
+                transfer = in.nextDouble();
+                transferBeda(rekening, transfer);
+                break;
         }
+    }
+    
+    public void transferSesama(int r, double t){
+        if(saldo<transfer){
+            System.out.println("Maaf, Saldo Yang Anda Miliki Tidak Cukup");
+        }
+        else if(saldo>transfer){
+            System.out.println("Anda Melakukan Transfer Ke Nomor Rekening "+r);
+            System.out.println("Sisa Saldo Anda Saat ini : ");
+            System.out.println("Rp"+(saldo-transfer));
+        }
+    }
+    
+    public void transferBeda(int r, double t){
+        if(saldo<transfer){
+            System.out.println("Maaf, Saldo Yang Anda Miliki Tidak Cukup");
+        }
+        else if(saldo>transfer){
+            System.out.println("Anda Melakukan Transfer Ke Nomor Rekening "+r);
+            System.out.println("Sisa Saldo Anda Saat ini : ");
+            System.out.println("Rp"+(saldo-transfer));
+        }
+    }
+    
+    
 }
