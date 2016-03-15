@@ -5,41 +5,57 @@ public class ConstructordanInstanceMethod {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-
         ATM nasabah = new ATM();
-
         System.out.println("<<Silahkan Masukkan Kartu ATM Anda>>");
         do {
             System.out.print("Input Password ATM: ");
             nasabah.passInput = in.nextInt();
         } while (nasabah.cekPass() == false);
-
         do {
             nasabah.showMenu();
             System.out.print("Input pilihan menu: ");
             int menu = in.nextInt();
             switch (menu) {
                 case 1:
-                    System.out.println("Saldo Anda saat ini: Rp " + nasabah.cekSaldo());
+                    System.out.println("Saldo Anda saat ini: Rp " + nasabah.saldo);
                     break;
                 case 2:
-                    System.out.print("Input nominal: ");
-                    nasabah.out = in.nextInt();
-                    nasabah.uangKeluar();
-                    break;
+                    if (nasabah.saldo >= 50000) {
+                        System.out.println("Penarikan dengan kelipatan 50000");
+                        do {
+                            System.out.print("Input nominal: ");
+                            nasabah.out = in.nextInt();
+                        } while (nasabah.cekKelipatan() == false);
+                        System.out.print("Anda yakin? (y/n): ");
+                        nasabah.confirm = in.next();
+                        nasabah.konfirmasi();
+                        break;
+                    } else {
+                        System.out.println("Saldo Anda tidak mencukupi untuk melakukan penarikan");
+                        break;
+                    }
                 case 3:
-                    System.out.print("Input rekening tujuan: ");
-                    nasabah.rekLain = in.nextLong();
-                    System.out.print("Input nominal: ");
-                    nasabah.out = in.nextInt();
-                    nasabah.uangKeluar();
+                    if (nasabah.saldo > 0) {
+                        System.out.print("Input rekening tujuan: ");
+                        nasabah.rekLain = in.nextLong();
+                        System.out.println("Transfer dengan kelipatan 50000");
+                        System.out.print("Input nominal: ");
+                        nasabah.out = in.nextInt();
+                        System.out.print("Anda yakin? (y/n): ");
+                        nasabah.confirm = in.next();
+                        nasabah.konfirmasi();
+                        nasabah.uangKeluar();
+                        break;
+                    } else {
+                        System.out.println("Saldo Anda tidak mecukupi untuk melakukan transfer");
+                    }
                     break;
                 default:
-                    System.out.println("Wrong input!");
+                    System.out.println("Wrong Input!");
                     break;
             }
             do {
-                System.out.print("Apakah Anda ingin melakukan transaksi lain? (y/n): ");
+                System.out.print("Apakah Anda ingin melakukan transaksi lain? (y/n):  ");
                 nasabah.again = in.next();
             } while (!"y".equals(nasabah.again) && !"n".equals(nasabah.again));
         } while ("y".equals(nasabah.again));
