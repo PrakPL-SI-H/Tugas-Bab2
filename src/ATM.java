@@ -24,6 +24,7 @@ public class ATM {
         System.out.println("Uang yang akan anda terik sebesar : " + tarikTunai);
         System.out.println("Saldo anda saat ini adalah        : " + (saldo - tarikTunai));
     }
-
-
+public void cekSaldo() {
+        System.out.println("Saldo anda saat ini adalah : " + saldo);
+    }
 }
