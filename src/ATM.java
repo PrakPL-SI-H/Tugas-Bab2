@@ -2,8 +2,8 @@
 public class ATM {
 
     int pass, passInput;
-    double saldo, out;
-    long rekLain;
+    double saldo;
+    long out, rekLain;
     String confirm, again;
 
     public ATM() {
