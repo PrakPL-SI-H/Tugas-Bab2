@@ -59,3 +59,76 @@ class mainATM {
         String jawab, noRek;
         MesinATM atm = new MesinATM("Rodhi", "301197", "1234567", 1000000);
         MesinATM atm1 = new MesinATM("Anonymous", "150796", "7654321", 2000000);
+
+do {
+            System.out.print("Masukan PIN anda : ");
+            String pin = inp.next();
+            if (pin.equals(atm.pin) || pin.equals(atm1.pin)) {
+                System.out.println("============= WELCOME ================");
+                System.out.println("1. Tarik Tunai ");
+                System.out.println("2. Informasi Saldo ");
+                System.out.println("3. Transfer ");
+                System.out.println("4. Keluar");
+                System.out.print("Pilihan Anda: ");
+                int pilihan = inp.nextInt();
+                switch (pilihan) {
+                    case 1:
+                        System.out.println("===Tarik Tunai===");
+                        System.out.print("Masukkan Nominal Tarik Tunai : ");
+                        if (pin.equals(atm.pin)) {
+                            atm.getUang(inp.nextInt());
+                        } else {
+                            atm1.getUang(inp.nextInt());
+                        }
+                        break;
+                    case 2:
+                        System.out.println("===Informasi Saldo===");
+                        if (pin.equals(atm.pin)) {
+                            atm.getSaldo();
+                        } else {
+                            atm1.getSaldo();
+                        }
+                        break;
+                    case 3:
+                        System.out.println("=====Transfer=====");
+
+                        if (pin.equals(atm.pin)) {
+                            System.out.print("Masukkan No.Rek Tujuan    : ");
+                            noRek = inp.next();
+                            if (noRek.equals(atm1.noRek)) {
+                                atm1.dataTransfer();
+                                System.out.print("Masukkan Nominal Transfer : ");
+                                atm.setTransfer(inp.nextInt());
+                                atm.Transfer(atm1);
+                            } else {
+                                System.out.println("Data Salah");
+                            }
+                        } else {
+                            System.out.print("Masukkan No.Rek Tujuan   : ");
+                            noRek = inp.next();
+                            if (noRek.equals(atm.noRek)) {
+                                atm.dataTransfer();
+                                System.out.print("Masukkan Nominal Transfer: Rp. ");
+                                atm1.setTransfer(inp.nextInt());
+                                atm1.Transfer(atm);
+                            } else {
+                                System.out.println("Data Salah");
+                            }
+                        }
+                        break;
+                    case 4:
+                        System.out.println("Terimakasih telah menggunakan layanan kami, "
+                                + "Silahkan ambil kartu anda ");
+                        break;
+                    default:
+                        System.out.println("Pilihan tidak ditemukan");
+                }
+            } else {
+                System.out.println("Pin Salah ");
+            }
+
+            System.out.print("Melanjutkan Transaksi? (Yes/No) ");
+            jawab = inp.next();
+        } while (jawab.equalsIgnoreCase("Yes"));
+    }
+}
