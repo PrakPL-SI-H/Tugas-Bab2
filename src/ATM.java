@@ -2,11 +2,9 @@
 public class ATM {
 
     int pass, passInput;
-    double saldo;
-    double out;
+    double saldo, out;
     long rekLain;
-    String confirm;
-    String again;
+    String confirm, again;
 
     public ATM() {
         pass = 12345;
