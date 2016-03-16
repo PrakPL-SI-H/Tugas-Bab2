@@ -11,7 +11,8 @@
 import java.util.Scanner;
 
 class atm {
-private double saldo, sisaSaldo, tarik, transfer;
+
+    private double saldo, sisaSaldo, tarik, transfer;
     public String noRek, kartuATM;
     public int pilihan, PIN;
     Scanner input = new Scanner(System.in);
@@ -128,11 +129,28 @@ private double saldo, sisaSaldo, tarik, transfer;
     }
 }
 
-
-public class LatihanBab1 {
+class LatihanBab1 {
 
     public static void main(String[] args) {
 
-    }
+        Scanner input = new Scanner(System.in);
+        System.out.println("Kartu ATM yang telah terdaftar :");
+        System.out.println("1. Pandu Damar Priambodo");
+        System.out.println("2. Wisnu Damar Priambodo");
+        System.out.print("Silahkan Masukkan No. Kartu ATM Anda : ");
+        int kartuAtm = input.nextInt();
 
+        if (kartuAtm == 1) {
+            atm wisnu = new atm();
+            wisnu = new atm(12345, 7100000);
+            wisnu.menu();
+        } else if (kartuAtm == 2) {
+            atm pandu = new atm();
+            pandu = new atm(54321, 5810000);
+            pandu.menu();
+        } else {
+            System.err.println("Maaf, Kartu ATM Anda belum terdaftar!");
+            System.err.println("Silahkan ambil kembali KARTU ATM Anda!");
+        }
+    }
 }
