@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class MesinATM {
 
     String nama, pin, noRek;
@@ -49,3 +51,11 @@ public void dataTransfer() {
     }
 
 }
+
+class mainATM {
+
+    public static void main(String[] args) {
+        Scanner inp = new Scanner(System.in);
+        String jawab, noRek;
+        MesinATM atm = new MesinATM("Rodhi", "301197", "1234567", 1000000);
+        MesinATM atm1 = new MesinATM("Anonymous", "150796", "7654321", 2000000);
