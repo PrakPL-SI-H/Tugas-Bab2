@@ -1,17 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- *
- * @author irwin deriyan
- */
-public class LatihanBab1 {
-    public static void main(String[] args) {
-        
-        
-        
+public class MesinATM {
+
+    String nama, pin, noRek;
+    int saldo, uang;
+
+    public MesinATM(String nama, String pin, String noRek, int saldo) {
+        this.nama = nama;
+        this.pin = pin;
+        this.noRek = noRek;
+        this.saldo = saldo;
+        uang = 0;
     }
-    
-}
