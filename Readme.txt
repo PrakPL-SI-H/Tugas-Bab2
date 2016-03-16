@@ -5,8 +5,7 @@ pastikan ketika upload tugas dilakukan secara bertahap.karna mempengaruhi nilai
 
 baca ketentuan umum pengumpulan tugas [disini](https://www.github.com/PrakPL-SI-H/KetentuanUmum.git);
 
-Nama	: <<isi disini>>
+Nama	: Salsabilla Syafta
 
-NIM 	: <<isi disini>>
-
-KELAS   : <<isi disini>>
+NIM 	: 155150401111133
+KELAS   : SI-H
