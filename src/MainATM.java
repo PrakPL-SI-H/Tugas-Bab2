@@ -3,18 +3,17 @@ import java.util.Scanner;
 public class MainATM {
     
     Scanner in = new Scanner(System.in);
-    ATM uang = new ATM();
     int pilihan;
     int pilihan1;
-    int saldo;
-    int saldo1;
-    int saldo2;
+    int saldo=2500000;
     String penarikan;
     int penarikan1;
     double transfer;
+    String loop;
     
     public static void main(String[]args){
-
+        MainATM atm = new MainATM();
+        atm.pin();
     }
 
     public void MenuATM(){
@@ -30,12 +29,15 @@ public class MainATM {
         switch (pilihan){
             case 1 :
                 cekSaldo();
+                loop();
                 break;
             case 2 :
                 penarikan();
+                loop();
                 break;
             case 3 :
                 transfer();
+                loop();
                 break;
             case 4 :
                 System.out.println("Terima Kasih");
@@ -43,6 +45,7 @@ public class MainATM {
                 break;
             default :
                 System.out.println("Pilihan Yang Anda Masukkan Salah");
+                MenuATM();
                 break;
         }
     }
@@ -85,9 +88,10 @@ public class MainATM {
     public void transfer(){
         int rekening;
 
-        System.out.println("Anda memilih transfer. Pilih menu");
+        System.out.println("Anda memilih transfer");
         System.out.println("1. Transfer Sesama Bank");
         System.out.println("2. Transfer Antar Bank");
+        System.out.print("Pilih Menu : ");
         pilihan1 = in.nextInt();
         switch(pilihan1){
             case 1 :
@@ -129,5 +133,34 @@ public class MainATM {
         }
     }
     
+    public void loop(){
+        System.out.println("===================================================");
+        System.out.println("Apakah Anda Ingin Melakukan Transaksi Lagi ? (y/n");
+        loop = in.next();
+        if("y".equals(loop)){
+            System.out.println("===================================================");
+            MenuATM();
+        }
+        
+        else if(!"y".equals(loop)){
+            System.out.println("===================================================");
+            System.out.println("Terima Kasih");
+            System.out.println("Silahkan Ambil Kartu Anda Kembali");
+        }        
+    }
     
+    public void pin(){
+        int pin = 123456;
+        int pin1;
+        System.out.println("Masukkan PIN Anda : ");
+        pin1 = in.nextInt();
+        if(pin1 == pin){
+            MenuATM();
+        }
+        else{
+            System.out.println("===================================================");
+            System.out.println("PIN Yang Anda Masukkan Salah");
+            pin();
+        }
+    }
 }
