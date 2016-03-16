@@ -53,7 +53,7 @@ public class ATM {
     }
 
     public void dataTransfer() {
-        System.out.println("Anda akan mentransfer ke nomor rekening: " + rekLain);
+        System.out.println("Anda akan mentransfer ke no. rek: " + rekLain);
         System.out.println("Dengan jumlah transfer: Rp " + out);
     }
 }

@@ -37,7 +37,7 @@ public class ConstructordanInstanceMethod {
                 case 3:
                     if (nasabah.saldo > 0) {
                         System.out.println("Transfer ke rekening lain");
-                        System.out.print("Input rekening tujuan: ");
+                        System.out.print("Input no. rek tujuan: ");
                         nasabah.rekLain = in.nextLong();
                         System.out.print("Input nominal: ");
                         nasabah.out = in.nextInt();
@@ -55,7 +55,7 @@ public class ConstructordanInstanceMethod {
                     break;
             }
             do {
-                System.out.print("Apakah Anda ingin melakukan transaksi lain? (y/n):  ");
+                System.out.print("Apakah Anda ingin melakukan transaksi lain? (y/n): ");
                 nasabah.again = in.next();
             } while (!"y".equals(nasabah.again) && !"n".equals(nasabah.again));
         } while ("y".equals(nasabah.again));
