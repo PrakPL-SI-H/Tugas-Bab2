@@ -47,7 +47,7 @@ public class ConstructordanInstanceMethod {
                         nasabah.konfirmasi();
                         break;
                     } else {
-                        System.out.println("Saldo Anda tidak mecukupi untuk melakukan transfer");
+                        System.out.println("Saldo Anda tidak mencukupi untuk melakukan transfer");
                     }
                     break;
                 default:
