@@ -13,7 +13,7 @@ public class LatihanBab2 {
             System.out.print("No. Rekening = ");
             String norek = in.next();
             System.out.print("Pin          = ");
-            String pin = in.next(); //nim
+            String pin = in.next();
             for (int i = 0; i < user.nasabah.length; i++) {
                 if ((norek.equals(user.nasabah[i][0]) && pin.equals(user.nasabah[i][1]))) {
                     System.out.println("=================================");
