@@ -10,3 +10,20 @@ public class MesinATM {
         this.saldo = saldo;
         uang = 0;
     }
+
+public void getSaldo() {
+        System.out.println("Saldo di Rekening anda : " + saldo);
+
+    }
+
+    public void getUang(int uang) {
+        this.uang = uang;
+        if (saldo > uang) {
+            saldo = saldo - uang;
+            System.out.println("===========================");
+            System.out.println("Penarikan Sebesar : " + uang);
+            System.out.println("Sisa Saldo anda saat ini : " + saldo);
+        } else {
+            System.out.println("Transaksi Di Batalkan, Saldo anda Tidak Cukup");
+        }
+    }
