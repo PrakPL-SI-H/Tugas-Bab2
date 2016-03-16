@@ -5,7 +5,7 @@ pastikan ketika upload tugas dilakukan secara bertahap.karna mempengaruhi nilai
 
 baca ketentuan umum pengumpulan tugas [disini](https://www.github.com/PrakPL-SI-H/KetentuanUmum.git);
 
-Nama	: AMINAH ROKHIKIM MAKHTUM
+Nama	: AMINAH R MAKHTUM
 
 NIM 	: 155150400111131
 
