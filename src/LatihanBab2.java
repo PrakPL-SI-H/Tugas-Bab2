@@ -27,3 +27,25 @@ public void getSaldo() {
             System.out.println("Transaksi Di Batalkan, Saldo anda Tidak Cukup");
         }
     }
+
+public void dataTransfer() {
+        System.out.println("Nomer Rekening Atas nama " + nama);
+    }
+
+    public void setTransfer(int uang) {
+        this.uang = uang;
+        if (saldo > uang) {
+            saldo = saldo - uang;
+            System.out.println("Dengan Nomer Rekening: " + noRek);
+            System.out.println("Transfer Sebesar : " + uang);
+            System.out.println("Saldo Anda saat ini : " + saldo);
+        } else {
+            System.out.println("Proses Di Batalkan Saldo anda Tidak Cukup");
+        }
+    }
+
+    public void Transfer(MesinATM a) {
+        a.saldo = a.saldo + uang;
+    }
+
+}
