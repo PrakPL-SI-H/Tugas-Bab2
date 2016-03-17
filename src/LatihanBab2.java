@@ -20,14 +20,17 @@ class ATM{
      System.out.println("Transaksi Berakhir");
  }
  
- public void NrNominal ( double Nominal){
+ public void NrNominal ( double Nominal,ATM NTransfer){
      nominal = Nominal;
      if (saldo > Nominal){
-     saldo = saldo - nominal;
+     
+     NTransfer.saldo = NTransfer.saldo - Nominal;
      System.out.println("Penarikan Berhasil");
-     System.out.print("Sisa Saldo Anda:"+saldo);
+     System.out.println("Sisa Saldo Anda:"+saldo);
      System.out.println("Silahkan Ambil Uang Anda.");
-     }else System.out.println("Saldo Tidak Mencukupi, Transaksi Berakhir");
+     }else{
+         System.out.println("Saldo Tidak Mencukupi, Transaksi Berakhir");}
+      
  
  }
  public void NrTransfer1(String Rekening){
@@ -36,20 +39,21 @@ class ATM{
      }else System.out.println("Rekening Tidak Valid");
      
  }
- public void NrTransfer2(double Nominal){
+ public void NrTransfer2(double Nominal, ATM NTransfer){
      
      nominal = Nominal;
      if (saldo > Nominal){
-     saldo = saldo-Nominal;
+
+      NTransfer.saldo = NTransfer.saldo - Nominal;
      System.out.println("Transfer Uang");
      System.out.println("No Rekening Tujun: "+transfer);
      System.out.println("Nominal Transfer: "+Nominal);
-     System.out.println("Informasi Saldo Anda : Rp."+saldo);
      System.out.println("Transaksi Berhasil Dilakukan");
      }
      else{
      System.out.println("Saldo Tidak Mencukupi, Transaksi Berakhir");
-     }      
+     }
+   
    }  
  }
 
@@ -61,9 +65,10 @@ public class LatihanBab2 {
         String YesNo;
         ATM Rek1 = new ATM ("Rasyid Muhammad", "595321", "7717450", 10000000);
         ATM Rek2 = new ATM ("Ajeng Permata", "123595", "8569734", 20000000);
-        //do{
+        
         System.out.print("Masukkan PIN anda:");
-        String pin = in.nextLine();
+        String pin = in.next();
+        do{
         if(pin.equals(Rek1.pin)){    
         System.out.println("ATM Bank BCA");    
             System.out.println("1. Penarikan Tunai " );
@@ -77,22 +82,35 @@ public class LatihanBab2 {
             case 1: 
                 System.out.println("-----===Penarikan Tunai Dari Rekening===-----");
                 System.out.print("Masukkan Jumlah Penarikan:"                     );
-                Rek1.NrNominal(in.nextInt());
+                Rek1.NrNominal(in.nextInt(),Rek1);
                 break;
             case 2: 
                 System.out.println("-----===Tranfer Rekening===-----");
+                
                 System.out.print("Masukkan No Rekening Tujuan: ");
                 Rek2.NrTransfer1(in.next());
                 System.out.print("Masukkan Nominal Transfer  : ");
-                Rek1.NrTransfer2(in.nextDouble());
-                    
+                Rek2.NrTransfer2(in.nextDouble(),Rek1); break;
+            case 3:
+                Rek1.NrSaldo();
+                break;  
+            case 4:
+                System.out.println("Transaksi Berakhir");
+                break;
+            default: 
+                System.out.println("Proses Tidak Dapat berjalan, Transaksi Selesai");
                 }
-            
+        
+        }else {
+            System.out.println("PIN Tidak Valid");
         }
+            System.out.print("Anda ingin Melanjutkan Transaksi (Yes/No)? ");
+            YesNo = in.next();
             
-        }
+        } while(YesNo.equalsIgnoreCase("Yes"));
+        System.out.println("Trasaksi Telah Berakhir");
         }
         
-//}
+}
         
         
