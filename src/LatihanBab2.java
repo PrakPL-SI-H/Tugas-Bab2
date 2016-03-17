@@ -46,7 +46,7 @@ class ATM{
 
       NTransfer.saldo = NTransfer.saldo - Nominal;
      System.out.println("Transfer Uang");
-     System.out.println("No Rekening Tujun: "+transfer);
+     System.out.println("No Rekening Tujuan: "+transfer);
      System.out.println("Nominal Transfer: "+Nominal);
      System.out.println("Transaksi Berhasil Dilakukan");
      }
