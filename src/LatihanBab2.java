@@ -57,6 +57,7 @@ class ATM{
    }  
  }
 
+
 public class LatihanBab2 {
     
   
