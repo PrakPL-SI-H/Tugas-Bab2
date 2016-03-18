@@ -7,7 +7,7 @@ public class MainATM {
     static ATM nasabah[] = new ATM[2];
 
     public static void main(String[] args) {
-        int pin, menu, ke = 3, keTF, rekTF;
+        int pin, menu, ke = 3, keTF = 3, rekTF;
         boolean pinMatch = false, stop = false;
         String lagi = null;
 
@@ -36,7 +36,7 @@ public class MainATM {
                 switch (menu) {
                     case 1:
                         if (nasabah[ke].saldo >= 50000) {
-                            System.out.println("Penarikan dengan kelipatan 50000");
+                            System.out.println(">>Penarikan dengan kelipatan 50000<<");
                             do {
                                 System.out.print("Input nominal: ");
                                 nasabah[ke].saldoOUT = in.nextInt();
@@ -55,31 +55,35 @@ public class MainATM {
                         break;
                     case 3:
                         if (nasabah[ke].saldo > 0) {
-                            System.out.println("Transfer ke rekening lain");
+                            System.out.println("<<Transfer ke rekening lain>>");
                             System.out.print("Input no. rek tujuan: ");
                             rekTF = in.nextInt();
-                            System.out.print("Input nominal: ");
-                            nasabah[ke].saldoOUT = in.nextInt();
-
                             for (int i = 0; i < nasabah.length; i++) {
                                 if (nasabah[i].rek == rekTF) {
                                     keTF = i;
-                                    System.out.println("No. rek tujuan: "+nasabah[keTF].rek);
-                                    System.out.println("Nominal transfer: "+nasabah[ke].saldoOUT);
-                                    // here 
-                                    System.out.print("Anda yakin? (y/n): ");
-                                    nasabah[ke].konfirmasi(in.next());
-                                    nasabah[keTF].saldo += nasabah[ke].saldoOUT;
-                                    nasabah[ke].cekSaldo();
-                                    break;                       
                                 }
                             }
-                            
+                            if (keTF != 3) {
+                                System.out.print("Input nominal: ");
+                                nasabah[ke].saldoOUT = in.nextInt();
+                                System.out.println("-----------------------------------");
+                                System.out.println("Anda akan melakukan transfer kepada");
+                                System.out.println("Atas nama: " + nasabah[keTF].nama);
+                                System.out.println("Nominal transfer: " + nasabah[ke].saldoOUT);
+                                System.out.println("-----------------------------------");
+                                System.out.print("Anda yakin? (y/n): ");
+                                nasabah[ke].konfirmasi(in.next());
+                                nasabah[keTF].saldo += nasabah[ke].saldoOUT;
+                                nasabah[ke].cekSaldo();
+                                break;
+                            } else {
+                                System.out.println("Maaf, nomor rekening tidak terdaftar");
+                                break;
+                            }
                         } else {
                             System.out.println("Maaf, Saldo Anda tidak mencukupi untuk melakukan transfer");
                             break;
                         }
-                        break;
                     case 4:
                         lagi = "n";
                         break;
@@ -92,7 +96,7 @@ public class MainATM {
                     lagi = in.next();
                 }
             } while ("y".equalsIgnoreCase(lagi));
-            System.out.println("<<Terima kasih... Silahkan ambil kartu ATM Anda.>>");
+            System.out.println("<<Terima kasih... Silahkan ambil kartu ATM Anda>>");
         } while (stop == false);
     }
 }
