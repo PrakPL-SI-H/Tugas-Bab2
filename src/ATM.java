@@ -1,43 +1,38 @@
 
 public class ATM {
 
-    int pass, passInput;
-    double saldo;
-    long out, rekLain;
-    String confirm, again;
+    String nama;
+    int rek, pin, saldo, saldoOUT;
 
-    public ATM() {
-        pass = 12345;
-        saldo = 1000000;
+    public ATM(String nama, int rek, int pass, int saldo) {
+        this.nama = nama;
+        this.rek = rek;
+        this.pin = pass;
+        this.saldo = saldo;
     }
 
-    public boolean cekPass() {
-        return (passInput == pass);
+    public static void showMenu() {
+        System.out.println("[1] Tarik Tunai\t\tTransfer [3]");
+        System.out.println("[2] Informasi Saldo\t  Keluar [4]");
     }
 
-    public void showMenu() {
-        System.out.println("1 Cek saldo");
-        System.out.println("2 Tarik uang");
-        System.out.println("3 Transfer ke rekening lain");
+    public void cekSaldo() {
+        System.out.println("Saldo Anda saat ini: Rp " + saldo);
     }
 
     public boolean cekKelipatan() {
-        return (out % 50000 == 0);
+        return (saldoOUT % 50000 == 0);
     }
 
-    public void uangKeluar() {
-        saldo = saldo - out;
-    }
-
-    public void konfirmasi() {
+    public void konfirmasi(String confirm) {
         switch (confirm) {
             case "y":
-                uangKeluar();
-                if (saldo < 0) {
-                    saldo += out;
-                    System.out.println("Saldo tidak mencukupi. Transaksi dibatalkan..");
+                if (saldo - saldoOUT < 0) {
+                    saldoOUT = 0;
+                    System.out.println("Maaf, saldo Anda tidak mencukupi. Transaksi dibatalkan..");
                     break;
                 } else {
+                    saldo -= saldoOUT;
                     System.out.println("Transaksi sukses..");
                     break;
                 }
@@ -48,10 +43,5 @@ public class ATM {
                 System.out.println("Wrong Input! Transaksi dibatalkan..");
                 break;
         }
-    }
-
-    public void dataTransfer() {
-        System.out.println("Anda akan mentransfer ke no. rek: " + rekLain);
-        System.out.println("Dengan jumlah transfer: Rp " + out);
     }
 }
