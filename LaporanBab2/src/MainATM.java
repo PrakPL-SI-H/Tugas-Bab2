@@ -11,7 +11,7 @@ public class MainATM {
    int pilihan,saldo;
    ATM nasabah []= new ATM [100];
    String nip;
-   String noRekTrans;
+   int noRekTrans;
    
    do {
        nasabah [i] = new ATM();
@@ -19,7 +19,7 @@ public class MainATM {
        System.out.print("Masukkan Nama\t\t: ");
        nasabah[i].setNama(in.nextLine());
        System.out.print("Masukkan Nomor Rekening\t: ");
-       nasabah[i].setNorek(in.nextLine());
+       nasabah[i].setNorek(input.nextLong());
        System.out.print("Masukkan PIN\t\t: ");
        nasabah[i].setPin(in.nextLine());
        System.out.print("Masukkan Saldo Awal Anda: Rp ");
@@ -35,13 +35,17 @@ public class MainATM {
         System.out.println("CALL CENTER BANK FORZA : (021) 320111");
         System.out.println("DIMOHON TIDAK MENGHUBUNGI NOMOR LAIN SELAIN NOMOR DI ATAS");
         System.out.printf("%75s","LANJUTKAN ==> ENTER");
-        input.nextLine();
+        in.nextLine();
         
         int x = 0;
+        int ingin;
+        int naik=1;
+        do{
         System.out.print("MASUKKAN PIN ANDA\t : ");
         nip = in.nextLine();
-        for (x=0;x<1;x++){
+        for (x=0;x<naik;x++){
             if (nip.equals(nasabah[x].pin)){
+                System.out.println("Anda Ligin Sebagai\t : "+nasabah[x].getNama());
                 nasabah[x].menuPertama();
                 System.out.print("Masukkan Pilihan Anda : ");
                 pil1 = in.nextInt();
@@ -60,10 +64,30 @@ public class MainATM {
                                 break;
                             case 3 : 
                                 System.out.print("Masukkan Nomor Rekening Yang Dituju\t\t: ");
-                                noRekTrans = in.nextLine();
-                                in.nextInt();
+                                noRekTrans = in.nextInt();
+                                in.nextLine();
                                 System.out.print("Masukkan Jumlah Uang Yang Akan Ditransfer\t: RP. ");
-                                nasabah[x].setJumlahTransfer(in.nextInt());
+                                int transfer = in.nextInt();
+                                nasabah[x].setJumlahTransfer(transfer);
+                                if (x>0){
+                                    long s = nasabah[x-1].getNorek();
+                                    
+                                if(s == noRekTrans){
+                                    int y = nasabah[x-1].getSaldo()+transfer;
+                                    nasabah[x-1].setSaldo(y);
+                                    System.out.println("Anda akan transfer uang ke\t\t\t: "+nasabah[x-1].getNama());
+                                   
+                                }
+                                }else {
+                                    long s = nasabah[x+1].getNorek();
+                                  
+                                    if(s == noRekTrans){
+                                    int y = nasabah[x+1].getSaldo()+transfer;
+                                    nasabah[x+1].setSaldo(y);
+                                    System.out.println("Anda akan transfer uang ke\t\t\t : "+nasabah[x+1].getNama());
+                                       
+                                }
+                                }
                                 nasabah[x].transferUang();
                                 break;
                             case 4 : 
@@ -81,8 +105,9 @@ public class MainATM {
                             pil2 = in.nextInt();
                             nasabah[x].seleksiLagi(pil2);
                             if (nasabah[x].seleksiLagi(pil2)==false){
-                                System.out.println("TERIMA KASIh TELAH MENGGUNAKAN LAYANAN BANK FORZA");
-                                return;
+                                System.out.println("TERIMA KASIH TELAH MENGGUNAKAN LAYANAN BANK FORZA");
+                                x--;
+                                break;
                             }else {continue;
                             }
                         }
@@ -95,6 +120,18 @@ public class MainATM {
             }else {continue;
             }
         } 
+            break;
         }
+         System.out.println();
+        System.out.println("Ingin Login Lagi? ");
+            System.out.println("1. Ya");
+            System.out.println("2. Tidak");
+            System.out.print("Masukkan pilihan : ");
+         ingin = input.nextInt();
+         naik++;
+         x--;
+         in.nextLine();
+    }while(ingin!=2);
 }
 }
+

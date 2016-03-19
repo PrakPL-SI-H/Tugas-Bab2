@@ -1,7 +1,7 @@
 
 public class ATM {
     private String nama;
-    private String norek;
+    private long norek;
     public String pin;
     private int saldo;
     public int jumlahTarik;
@@ -14,10 +14,10 @@ public class ATM {
     public String getNama (){
         return nama;
     }
-    public void setNorek(String norrek){
+    public void setNorek(long norrek){
         norek = norrek;
     }
-    public String getNorek (){
+    public long getNorek (){
         return norek;
     }
     public void setPin (String p){
