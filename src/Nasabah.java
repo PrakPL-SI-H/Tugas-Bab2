@@ -2,6 +2,7 @@
 public class Nasabah {
     final String nasabah [][] = {{"1234510","1234","Jason Mraz"},{"1234511","1010","Muh. Asdar"}};
     int saldo;
+    int transfer;
     
     //saldo jason mraz
     public Nasabah(){
@@ -28,6 +29,11 @@ public class Nasabah {
     
     public void transfer(int transfer){
         saldoKurang(transfer);
+        this.transfer = transfer;
+    }
+    
+    public void saldoTamah(){
+        saldo += transfer;
     }
     
 }   
