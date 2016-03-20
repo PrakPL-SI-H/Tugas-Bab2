@@ -4,10 +4,10 @@ public class ATM {
     String nama;
     int rek, pin, saldo, saldoOUT;
 
-    public ATM(String nama, int rek, int pass, int saldo) {
+    public ATM(String nama, int rek, int pin, int saldo) {
         this.nama = nama;
         this.rek = rek;
-        this.pin = pass;
+        this.pin = pin;
         this.saldo = saldo;
     }
 
