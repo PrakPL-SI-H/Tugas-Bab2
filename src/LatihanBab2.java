@@ -9,6 +9,7 @@ public class LatihanBab2 {
         Nasabah user = new Nasabah();
         boolean usr = false;
         int plh;
+        int transfer = 0;
         String rektujuan = "";
         do {
             System.out.println("===== Anjungan Tunai Jomblo =====");
@@ -30,7 +31,7 @@ public class LatihanBab2 {
                                 if (i == 1) {
                                     user = new Nasabah(1);
                                     if (rektujuan.equalsIgnoreCase(norek))
-                                        user.saldoTamah();
+                                        user.saldoTamah(transfer);
                                 }
                                 user.showData(i);
                                 usr = true;
@@ -67,7 +68,7 @@ public class LatihanBab2 {
                                 System.out.print("No.Rekening Tujuan = ");
                                 rektujuan = in.next();
                                 System.out.print("Jumlah Transfer    = ");
-                                int transfer = in.nextInt();
+                                transfer = in.nextInt();
                                 System.out.printf("%.40s\n", batas);
                                 System.out.println("\tTujuan");
                                 System.out.println("No.Rekening     = " + rektujuan);

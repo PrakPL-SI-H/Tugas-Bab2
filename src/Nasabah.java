@@ -32,7 +32,7 @@ public class Nasabah {
         this.transfer = transfer;
     }
     
-    public void saldoTamah(){
+    public void saldoTamah(int transfer){
         saldo += transfer;
     }
     
