@@ -1,156 +1,155 @@
+
+import java.util.Scanner;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author irwin deriyan
  */
-import java.util.Scanner;
+class atmData {
 
-class atm {
+    String nama;
+    int norek, pin, saldo;
 
-    private double saldo, sisaSaldo, tarik, transfer;
-    public String noRek, kartuATM;
-    public int pilihan, PIN;
-    Scanner input = new Scanner(System.in);
-
-    atm() {
+    public atmData(String x, int a, int b, int c) {
+        nama = x;
+        norek = a;
+        pin = b;
+        saldo = c;
     }
 
-    atm(int pin, double saldo) {
-        PIN = pin;
-        this.saldo = saldo;
+    public void showSaldo() {
+
+        System.out.println("Maka Saldo Anda Berjumlah = " + saldo);
     }
 
-    public void menu() {
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        System.out.println("****************** SELAMAT DATANG ******************");
-        System.err.println("                     ATM BERSAMA                    ");
-        System.out.println("Silahkan Masukkan Kartu ATM Anda :)) _         ");
-        password();
+    public int Transfer(int a) {
+        return saldo -= a;
     }
 
-    public void password() {
-        System.out.print("Masukkan Nomor PIN Anda : ");
-        PIN = input.nextInt();
-        if (PIN == 12345 || PIN == 54321) {
-            menuOpsi();
-        } else {
-            System.err.println("Maaf.");
-            System.err.println("PIN yang Anda masukkan salah.");
-            System.err.println("Silahkan coba lagi.");
-            System.err.println("=====================================================");
-            System.err.println("");
-            password();
-        }
+    public int tarikTunai(int x) {
+        return saldo -= x;
     }
 
-    public void menuOpsi() {
-        System.out.println("=====================================================");
-        System.out.println("1. Informasi Saldo");
-        System.out.println("2. Tarik Tunai");
-        System.out.println("3. Transfer");
-        System.out.println("0. KELUAR");
-        System.out.print("Masukkan pilihan Anda : ");
-        pilihan = input.nextInt();
-        if (pilihan == 1) {
-            System.out.println("");
-            System.out.println("=====================================================");
-            pil1();
-        } else if (pilihan == 2) {
-            System.out.println("");
-            System.out.println("=====================================================");
-            pil2();
-        } else if (pilihan == 3) {
-            System.out.println("");
-            System.out.println("=====================================================");
-            pil3();
-        } else if (pilihan == 0) {
-            System.out.println("");
-            System.out.println("=====================================================");
-            menuKeluar();
-        } else {
-            System.err.println("Anda Tersesat dan Salah Jalan.");
-            System.err.println("ulangi pilihan anda kembali!");
-            menuOpsi();
-        }
-    }
-
-    public void pil1() {
-        System.out.println("Saldo Anda : Rp." + saldo);
-        menuOpsi();
-        System.out.println("=====================================================");
-        System.out.println("");
-    }
-
-    public void pil2() {
-        System.out.print("Masukkan Jumlah Penarikan Rp.");
-        tarik = input.nextDouble();
-        if (tarik > saldo) {
-            System.err.println("Maaf Saldo Anda Tidak Mencukupi.");
-            System.err.println("=====================================================");
-            pil2();
-        } else {
-            sisaSaldo = saldo - tarik;
-            saldo = sisaSaldo;
-            System.out.println("Sisa saldo Anda saat ini Rp." + saldo);
-        }
-        System.out.println("");
-        menuOpsi();
-    }
-
-    public void pil3() {
-        System.out.print("Masukkan Nomer Rekening tujuan : ");
-        noRek = input.next();
-        System.out.print("Masukkan Nominal yang akan ditransfer : Rp.");
-        transfer = input.nextDouble();
-        if (saldo >= transfer) {
-            System.out.println("*****************************************************");
-            System.out.println("Anda telah melakukan transfer sejumlah uang Rp." + transfer);
-            System.out.println("pada Nomor Rekening " + noRek);
-            sisaSaldo = saldo - transfer;
-            saldo = sisaSaldo;
-            System.out.println("Sisa saldo Anda saat ini Rp." + saldo);
-            menuOpsi();
-        } else {
-            System.err.println("Transaksi Anda TIDAK Berhasil :D");
-            System.out.println("=====================================================");
-            System.out.println("");
-            pil3();
-        }
-    }
-
-    public void menuKeluar() {
-        System.out.println("Terima Kasih");
-        System.err.println("Silahkan ambil Kartu ATM Anda");
-    }
 }
 
 class LatihanBab1 {
 
     public static void main(String[] args) {
 
-        Scanner input = new Scanner(System.in);
-        System.out.println("Kartu ATM yang telah terdaftar :");
-        System.out.println("1. Pandu Damar Priambodo");
-        System.out.println("2. Wisnu Damar Priambodo");
-        System.out.print("Silahkan Masukkan No. Kartu ATM Anda : ");
-        int kartuAtm = input.nextInt();
-
-        if (kartuAtm == 1) {
-            atm wisnu = new atm();
-            wisnu = new atm(12345, 7100000);
-            wisnu.menu();
-        } else if (kartuAtm == 2) {
-            atm pandu = new atm();
-            pandu = new atm(54321, 5810000);
-            pandu.menu();
-        } else {
-            System.err.println("Maaf, Kartu ATM Anda belum terdaftar!");
-            System.err.println("Silahkan ambil kembali KARTU ATM Anda!");
+        int pil;
+        Scanner in = new Scanner(System.in);
+        atmData org1 = new atmData("Pandu Damar Priambodo", 15515040, 1234, 2000000);
+        atmData org2 = new atmData("Gunardi Dwi Suseno", 15525030, 4321, 5000000);
+        int pin;
+        String loop;
+        System.err.println("====SELAMAT DATANG DI ATM BERSAMA====");
+        System.out.println("");
+        System.out.print("Masukkan Pin Anda : ");
+        pin = in.nextInt();
+        if (pin == org1.pin) {
+            System.out.println("====================================");
+            System.err.println("=========IDENTITAS NASABAH==========");
+            System.out.println("====================================");
+            System.out.println("Anda Masuk Sebagai :");
+            System.out.println("");
+            System.out.println("Nama : " + org1.nama);
+            System.out.println("====================================");
+            System.out.println("No Rekening : " + org1.norek);
+            System.out.println("====================================");
+        } else if (pin == org2.pin) {
+            System.out.println("Anda Masuk Sebagai :");
+            System.out.println("");
+            System.out.println("====================================");
+            System.out.println("Nama : " + org2.nama);
+            System.out.println("====================================");
+            System.out.println("No Rekening : " + org2.norek);
+            System.out.println("====================================");
         }
+        tampilanMenu();
+        do {
+
+            System.out.print("Masukkan Pilihan Anda : ");
+            pil = in.nextInt();
+
+            switch (pil) {
+                case 1:
+                    if (pin == org1.pin) {
+                        org1.showSaldo();
+                    } else if (pin == org2.pin) {
+                        org2.showSaldo();
+                    }
+                    break;
+                case 2:
+                    if (pin == org1.pin) {
+                        System.out.println("Masukkan Nomor Rekening Tujuan Anda : ");
+                        int tuju = in.nextInt();
+                        if (tuju == org2.norek) {
+
+                            System.out.print("Masukkan banyak nominal : ");
+                            int nom = in.nextInt();
+                            org1.Transfer(nom);
+                            System.out.println("====================================");
+                            System.out.println("Anda Melakukan Transfer Ke : ");
+                            System.out.println("Nama : " + org2.nama);
+                            System.out.println("Nomor Rekening Tujuan : " + org2.norek);
+                            System.out.println("Nominal : " + nom);
+                            System.out.println("Tunggu Beberapa Saat........");
+                            System.out.println("Selamat Transaksi Anda Berhasil");
+                            System.out.println("Dengan Sisa Saldo Anda : " + org1.saldo);
+                        }
+
+                    } else if (pin == org2.pin) {
+                        System.out.println("Masukkan Nomor Rekening Tujuan Anda : ");
+                        int tuju = in.nextInt();
+                        if (tuju == org1.norek) {
+                            System.out.print("Masukkan banyak nominal : ");
+                            int nom = in.nextInt();
+                            org2.Transfer(nom);
+                            System.out.println("====================================");
+                            System.out.println("Anda Melakukan Transfer Ke : ");
+                            System.out.println("Nama : " + org1.nama);
+                            System.out.println("Nomor Rekening Tujuan : " + org1.norek);
+                            System.out.println("Nominal : " + nom);
+                            System.out.println("Tunggu Beberapa Saat........");
+                            System.out.println("Selamat Transaksi Anda Berhasil");
+                            System.out.println("Dengan Sisa Saldo Anda : " + org2.saldo);
+                        }
+
+                    }
+                    break;
+                case 3:
+                    if (pin == org1.pin) {
+                        System.out.print("Masukkan jumlah nominal : ");
+                        int nom = in.nextInt();
+                        org1.tarikTunai(nom);
+                        org1.showSaldo();
+                    } else if (pin == org2.pin) {
+                        System.out.print("Masukkan jumlah nominal : ");
+                        int nom = in.nextInt();
+                        org2.tarikTunai(nom);
+                        org2.showSaldo();
+                    }
+                    break;
+            }
+            System.out.print("Apakah ada transaksi lain? (Y/N) ");
+            loop = in.next();
+        } while ("Y".equals(loop));
+        System.out.println("Terima Kasih");
+        System.err.println("Silahkan Ambil Kartu ATM Anda");
     }
+
+    public static void tampilanMenu() {
+        System.out.println("======MENU PILIHAN======");
+        System.out.println("1.Cek Saldo");
+        System.out.println("2.Transfer");
+        System.out.println("3.Tarik Tunai");
+        System.out.println("4.Keluar");
+
+    }
+
 }
