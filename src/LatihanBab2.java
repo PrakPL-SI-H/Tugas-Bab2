@@ -9,7 +9,7 @@
  */
 public class LatihanBab1 {
     public static void main(String[] args) {
-        
+        hy hy
         
         
     }
